@@ -9,13 +9,19 @@ RUN yarn --prod
 FROM node:20.10.0 as build
 
 ARG PUBLIC_WEB_URL
+ARG GT_PROJECT_ID
+ARG GT_API_KEY
 
 ENV PUBLIC_WEB_URL=${PUBLIC_WEB_URL}
+ENV GT_PROJECT_ID=${GT_PROJECT_ID}
+ENV GT_API_KEY=${GT_API_KEY}
+
 WORKDIR /usr/src/app
 
 COPY . .
 
 RUN yarn
+RUN npx gtx-cli translate --experimental-localize-static-urls --experimental-flatten-json-files
 RUN yarn build
 
 FROM node:20.10.0-slim
