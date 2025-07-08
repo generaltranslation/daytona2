@@ -1,0 +1,24 @@
+{
+  "a013c005483cdd19": {
+    "type": "div",
+    "props": {
+      "data-_gt": {
+        "id": 1
+      },
+      "children": {
+        "type": "a",
+        "props": {
+          "data-_gt": {
+            "id": 2
+          },
+          "children": "Get a Demo"
+        }
+      }
+    },
+    "t": "C",
+    "i": 1
+  },
+  "9e72619d4c534b54": [
+    "Star"
+  ]
+}

@@ -1,0 +1,121 @@
+---
+title: "ボリューム"
+hideTitleOnPage: true
+---
+
+## ボリューム
+
+```python
+class Volume(VolumeDto)
+```
+
+Daytona Volume を表し、これは Sandboxes 用の共有ストレージボリュームです。
+
+**属性**:
+
+- `id` _StrictStr_ - ボリュームの一意な識別子。
+- `name` _StrictStr_ - ボリュームの名前。
+- `organization_id` _StrictStr_ - ボリュームの組織ID。
+- `state` _StrictStr_ - ボリュームの状態。
+- `created_at` _StrictStr_ - ボリュームが作成された日時。
+- `updated_at` _StrictStr_ - ボリュームが最後に更新された日時。
+- `last_used_at` _StrictStr_ - ボリュームが最後に使用された日時。
+
+## VolumeService
+
+```python
+class VolumeService()
+```
+
+Daytona Volume を管理するためのサービスです。Volume の一覧取得、取得、作成、削除が可能です。
+
+#### VolumeService.list
+
+```python
+def list() -> List[Volume]
+```
+
+すべての Volume を一覧表示します。
+
+**戻り値**:
+
+- `List[Volume]` - すべての Volume のリスト。
+  
+**例**:
+
+```python
+daytona = Daytona()
+volumes = daytona.volume.list()
+for volume in volumes:
+    print(f"{volume.name} ({volume.id})")
+```
+
+#### VolumeService.get
+
+```python
+def get(name: str, create: bool = False) -> Volume
+```
+
+名前で Volume を取得します。
+
+**引数**:
+
+- `name` _str_ - 取得する Volume の名前。
+- `create` _bool_ - True の場合、存在しない場合は新しい Volume を作成します。
+  
+**戻り値**:
+
+- `Volume` - Volume オブジェクト。
+  
+**例**:
+
+```python
+daytona = Daytona()
+volume = daytona.volume.get("test-volume-name", create=True)
+print(f"{volume.name} ({volume.id})")
+```
+
+#### VolumeService.create
+
+```python
+def create(name: str) -> Volume
+```
+
+新しい Volume を作成します。
+
+**引数**:
+
+- `name` _str_ - 作成する Volume の名前。
+  
+**戻り値**:
+
+- `Volume` - Volume オブジェクト。
+  
+**例**:
+
+```python
+daytona = Daytona()
+volume = daytona.volume.create("test-volume")
+print(f"{volume.name} ({volume.id}); state: {volume.state}")
+```
+
+#### VolumeService.delete
+
+```python
+def delete(volume: Volume) -> None
+```
+
+Volume を削除します。
+
+**引数**:
+
+- `volume` _Volume_ - 削除する Volume。
+  
+**例**:
+
+```python
+daytona = Daytona()
+volume = daytona.volume.get("test-volume")
+daytona.volume.delete(volume)
+print("Volume deleted")
+```

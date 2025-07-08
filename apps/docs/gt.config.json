@@ -1,0 +1,33 @@
+{
+  "framework": "react",
+  "defaultLocale": "en",
+  "files": {
+    "mdx": {
+      "include": [
+        "src/content/docs/[locale]/**/*.mdx",
+        "src/content/legacy-docs/[locale]/**/*.mdx"
+      ]
+    },
+    "md": {
+      "include": [
+        "src/content/docs/[locale]/**/*.md",
+        "src/content/legacy-docs/[locale]/**/*.md"
+      ]
+    },
+    "json": {
+      "include": [
+        "src/content/i18n/[locale].json"
+      ]
+    },
+    "gt": {
+      "output": "src/data/i18n/[locale].json"
+    }
+  },
+  "locales": [
+    "en",
+    "ja"
+  ],
+  "baseUrl": "http://localhost:10000",
+  "ssr": true,
+  "_versionId": "ba53427e9a701596a7458f856315f31e67f694e3cd778ffa9a0186b28ad1a281"
+}

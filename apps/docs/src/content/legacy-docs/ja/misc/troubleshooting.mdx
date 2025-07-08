@@ -1,0 +1,72 @@
+---
+title: トラブルシューティング
+description: Daytona のトラブルシューティング
+sidebar:
+  label: トラブルシューティング
+---
+
+以下のトラブルシューティングのヒントを使用して、Daytona でよくある問題を解決できます。
+
+## 接続の問題
+
+### VPNとファイアウォール
+
+VPNがすべてのIPトラフィックを処理するように設定されている場合や、ファイアウォールが特定のIPアドレスをブロックするように設定されている場合、Daytonaがリバースプロキシサービスに正常に接続できなくなることがあります。
+この問題は、さまざまな形で現れることがあります。例えば：
+
+- `control not running` エラーによりDaytona Serverを起動できない。
+- `Failed to connect to server: Get "http://server/health": lookup server...` エラーによりWorkspacesを正常に作成できない。
+- Tailscale接続の確立時にタイムアウトが発生し、`daytona code` や `daytona ssh` を使用してWorkspaceに入れない。
+
+この問題を回避するには、以下のIPアドレスをVPNまたはファイアウォールの例外リストに追加する必要があります：
+
+- `35.198.165.62` - ヨーロッパ拠点のリバースプロキシ
+- `34.133.75.4` - アメリカ拠点のリバースプロキシ
+
+## WSL2 と Visual Studio Code
+
+### 説明
+
+WSL2 上で Daytona を実行する場合、Visual Studio Code IDE との連携がスムーズに動作しません。この問題は、Visual Studio Code がネイティブの Windows SSH クライアントに依存している一方で、Daytona は Linux の SSH 設定ファイルを変更してワークスペースごとの SSH 接続設定を行うために発生します。
+
+Daytona は SSH 設定で定義された `daytona ssh-proxy` を呼び出す ProxyCommand を使用します。この設定は Daytona バイナリが Linux ファイルシステム内に存在することを前提としており、Visual Studio Code が Windows 環境に依存していることと衝突します。
+
+この問題は Daytona 固有のものではなく、Visual Studio Code のリモート開発プラグインの制限に起因しています。このプラグインは、`code` CLI を呼び出す際にカスタムの「remote SSH path」フラグを渡すことを現在サポートしていません。この機能がないため、Daytona が Linux 固有の設定に依存していることと、Visual Studio Code が Windows ネイティブのツールに依存していることが衝突します。
+
+### 解決策
+
+Visual Studio Code プラグインで「remote SSH path」フラグの公式サポートが提供されるまで、以下の回避策でこの問題に対処できます。この解決策では、スクリプトの作成と設定の変更により、Windows と Linux の SSH クライアントを連携させてシームレスに動作させます。
+
+1. 次の内容で **`wsl_ssh.bat`** スクリプトを作成します:
+
+```bash
+C:\Windows\system32\wsl.exe ssh %*
+```
+
+2. **`wsl_ssh.bat`** スクリプトを次のディレクトリに保存します:
+
+```text
+C:\Users\<USERNAME>\AppData\Roaming\bin\wsl_ssh.bat
+```
+
+3. Visual Studio Code の **`settings.json`** ファイルを更新し、**`wsl_ssh.bat`** スクリプトを SSH パスとして指定します:
+
+```sh
+"remote.SSH.path": "C:\\Users\\<USERNAME>\\AppData\\Roaming\\bin\\wsl_ssh.bat"
+```
+
+:::tip
+`settings.json` ファイルは次のディレクトリにあります:
+
+`C:\Users\<USERNAME>\AppData\Roaming\Code\User\settings.json`
+:::
+
+<br />
+
+4. ネイティブの SSH 設定と WSL2 の SSH 設定を同期するためにシンボリックリンクを作成します:
+
+```sh
+ln -s /mnt/c/Users/<USERNAME>/.ssh/config config
+```
+
+これにより、両方の環境で SSH 設定が一貫して利用できるようになります。

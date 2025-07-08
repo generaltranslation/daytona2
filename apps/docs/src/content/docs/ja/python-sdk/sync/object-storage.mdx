@@ -1,0 +1,34 @@
+---
+title: "ObjectStorage"
+hideTitleOnPage: true
+---
+
+## ObjectStorage
+
+```python
+class ObjectStorage()
+```
+
+ObjectStorage クラスは、オブジェクトストレージサービスとやり取りするためのものです。
+
+**属性**:
+
+- `endpoint_url` _str_ - オブジェクトストレージサービスのエンドポイントURL。
+- `aws_access_key_id` _str_ - オブジェクトストレージサービスのアクセスキーID。
+- `aws_secret_access_key` _str_ - オブジェクトストレージサービスのシークレットアクセスキー。
+- `aws_session_token` _str_ - オブジェクトストレージサービスのセッショントークン。一時的な認証情報に使用されます。
+- `bucket_name` _str_ - 使用するバケット名。
+
+#### ObjectStorage.upload
+
+```python
+def upload(path, organization_id, archive_base_path=None) -> str
+```
+
+ファイルをオブジェクトストレージサービスにアップロードします。
+
+**引数**:
+
+- `path` _str_ - アップロードするファイルのパス。
+- `organization_id` _str_ - 使用する組織ID。
+- `archive_base_path` _str_ - アーカイブ用のベースパス。

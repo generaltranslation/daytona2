@@ -1,0 +1,115 @@
+---
+title: インストール
+description: Linux、macOS、Windows への Daytona のインストール方法を学びます。
+sidebar:
+  label: インストール
+---
+
+import Aside from '@components/Aside.astro'
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Homebrew from './method/homebrew.mdx'
+import Nix from './method/nix.mdx'
+import ScriptPowerShell from './method/script-powershell.mdx'
+import ScriptUnix from './method/script-unix.mdx'
+import Uninstall from './method/uninstall.mdx'
+import UninstallWindows from './method/uninstall-windows.mdx'
+
+Linux、macOS、Windows システムに Daytona をインストールします。
+各オペレーティングシステムは、`x86_64` および `ARM64` アーキテクチャの両方をサポートしています。
+
+Daytona は、[Docker](https://docs.docker.com/engine/install/) を活用して、分離された開発環境を作成および管理します。
+
+## インストール
+
+<br />
+
+<Tabs>
+<TabItem label="Linux" icon="linux">
+
+以下のインストールスクリプトを使用して、Linux に Daytona をインストールします。
+
+```shell
+(curl -sf -L https://download.daytona.io/daytona/install.sh | sudo bash) && daytona server -y && daytona
+```
+
+:::note
+バイナリを手動でダウンロードし、ご自身の `PATH` に配置することで Daytona をインストールすることもできます。
+
+```shell
+# x86-64
+curl -sf -L https://download.daytona.io/daytona/v0.53/daytona-linux-amd64 -o daytona
+# ARM64
+curl -sf -L https://download.daytona.io/daytona/v0.53/daytona-linux-arm64 -o daytona
+```
+
+:::
+
+</TabItem>
+<TabItem label="MacOS" icon="apple">
+
+以下のインストールスクリプトを使用して、macOS に Daytona をインストールします。
+
+```shell
+(curl -sf -L https://download.daytona.io/daytona/install.sh | sudo bash) && daytona server -y && daytona
+```
+
+:::note
+バイナリを手動でダウンロードし、ご自身の `PATH` に配置することで Daytona をインストールすることもできます。
+
+```shell
+# x86-64/Intel-based
+curl -sf -L https://download.daytona.io/daytona/v0.53/daytona-darwin-amd64 -o daytona
+# ARM64/Apple Silicon
+curl -sf -L https://download.daytona.io/daytona/v0.53/daytona-darwin-arm64 -o daytona
+```
+
+:::
+
+</TabItem>
+<TabItem label="Windows" icon="seti:windows">
+以下の PowerShell スクリプトを使用して、Windows に Daytona をインストールします。
+
+```powershell
+$architecture = if ($env:PROCESSOR_ARCHITECTURE -eq "AMD64") { "amd64" } else { "arm64" }
+md -Force "$Env:APPDATA\bin\daytona"; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Tls,Tls11,Tls12';
+Invoke-WebRequest -URI "https://download.daytona.io/daytona/v0.53/daytona-windows-$architecture.exe" -OutFile "$Env:APPDATA\bin\daytona\daytona.exe";
+$env:Path += ";" + $Env:APPDATA + "\bin\daytona"; [Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::User);
+daytona serve;
+```
+
+:::note
+バイナリを手動でダウンロードし、ご自身の `PATH` に配置することで Daytona をインストールすることもできます。
+
+```sh
+# x86-64
+curl -sf -L https://download.daytona.io/daytona/v0.53/daytona-windows-amd64.exe -o daytona
+# AArch64
+curl -sf -L https://download.daytona.io/daytona/v0.53/daytona-windows-arm64.exe -o daytona
+```
+
+:::
+
+<br />
+
+:::tip
+Windows Subsystem for Linux (WSL) をご利用の場合、SSH クライアントに依存する IDE で Daytona を実行する方法については、[こちらの手順](https://github.com/daytonaio/daytona/issues/282) をご参照ください。
+:::
+</TabItem>
+<TabItem label="Homebrew" icon="homebrew">
+<Homebrew />
+</TabItem>
+<TabItem label="Nix" icon="nix">
+<Nix />
+</TabItem>
+</Tabs>
+
+## アンインストール
+
+<Tabs>
+<TabItem label="Unix" icon="linux">
+<Uninstall />
+</TabItem>
+<TabItem label="Windows" icon="seti:windows">
+<UninstallWindows />
+</TabItem>
+</Tabs>
