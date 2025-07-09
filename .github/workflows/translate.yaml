@@ -19,8 +19,8 @@ jobs:
           gt_project_id: ${{ secrets.GT_PROJECT_ID }}
           config: 'apps/docs/gt.config.json'
           inline: true
+          timeout: 3600
           pr_branch: 'gt-translate/${{ github.ref_name }}'
           pr_title: '[ci] Translate ${{ github.event.head_commit.message }}'
-          pr_description: 'GT Translate: Translation updates for ${{ github.ref_name }} (${{ github.event.head_commit.message }})'
           experimental_localize_static_urls: true
           experimental_flatten_json_files: true
