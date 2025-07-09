@@ -21,6 +21,6 @@ jobs:
           inline: true
           timeout: 3600
           pr_branch: 'gt-translate/${{ github.ref_name }}'
-          pr_title: '[ci] Translate ${{ github.event.head_commit.message }}'
+          pr_title: '[ci] translate'
           experimental_localize_static_urls: true
           experimental_flatten_json_files: true
