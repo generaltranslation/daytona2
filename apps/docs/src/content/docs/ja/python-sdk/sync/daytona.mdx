@@ -9,9 +9,9 @@ hideTitleOnPage: true
 class Daytona()
 ```
 
-Daytona APIとやり取りするためのメインクラス。
+Daytona APIと対話するためのメインクラス。
 
-このクラスは、Daytona Sandboxの作成、管理、操作を行うメソッドを提供します。
+このクラスは、Daytona Sandboxの作成、管理、および操作を行うメソッドを提供します。
 明示的な設定または環境変数を使用して初期化できます。
 
 **属性**:
@@ -54,7 +54,7 @@ def __init__(config: Optional[DaytonaConfig] = None)
 
 **引数**:
 
-- `config` _Optional[DaytonaConfig]_ - api_key、api_url、targetを含むオブジェクト。
+- `config` _Optional[DaytonaConfig]_ - api_key、api_url、およびtargetを含むオブジェクト。
   
 
 **例外**:
@@ -213,8 +213,8 @@ Sandboxを削除します。
 
 ```python
 sandbox = daytona.create()
-# ... use sandbox ...
-daytona.delete(sandbox)  # Clean up when done
+# ... sandboxを使用 ...
+daytona.delete(sandbox)  # 完了時にクリーンアップ
 ```
 
 #### Daytona.get
@@ -333,7 +333,7 @@ Sandboxを開始し、準備完了まで待機します。
 def stop(sandbox: Sandbox, timeout: Optional[float] = 60) -> None
 ```
 
-Sandboxを停止し、停止完了まで待機します。
+Sandboxを停止し、停止するまで待機します。
 
 **引数**:
 
@@ -371,12 +371,12 @@ Daytonaクライアントを初期化するための設定オプション。
 
 **属性**:
 
-- `api_key` _Optional[str]_ - Daytona APIでの認証用APIキー。設定されていない場合は、環境変数`DAYTONA_API_KEY`で提供するか、代わりにJWTトークンを提供する必要があります。
-- `jwt_token` _Optional[str]_ - Daytona APIでの認証用JWTトークン。設定されていない場合は、環境変数`DAYTONA_JWT_TOKEN`で提供するか、代わりにAPIキーを提供する必要があります。
-- `organization_id` _Optional[str]_ - JWTベース認証で使用される組織ID。JWTトークンが提供される場合は必須で、ここまたは環境変数`DAYTONA_ORGANIZATION_ID`で設定する必要があります。
-- `api_url` _Optional[str]_ - Daytona APIのURL。ここまたは環境変数`DAYTONA_API_URL`で設定されていない場合、デフォルトで`'https://app.daytona.io/api'`になります。
+- `api_key` _Optional[str]_ - Daytona APIでの認証用のAPIキー。設定されていない場合は、環境変数`DAYTONA_API_KEY`で提供するか、代わりにJWTトークンを提供する必要があります。
+- `jwt_token` _Optional[str]_ - Daytona APIでの認証用のJWTトークン。設定されていない場合は、環境変数`DAYTONA_JWT_TOKEN`で提供するか、代わりにAPIキーを提供する必要があります。
+- `organization_id` _Optional[str]_ - JWTベースの認証で使用される組織ID。JWTトークンが提供される場合は必須で、ここまたは環境変数`DAYTONA_ORGANIZATION_ID`で設定する必要があります。
+- `api_url` _Optional[str]_ - Daytona APIのURL。ここまたは環境変数`DAYTONA_API_URL`で設定されていない場合は、デフォルトで`'https://app.daytona.io/api'`になります。
 - `server_url` _Optional[str]_ - 非推奨。代わりに`api_url`を使用してください。このプロパティは将来のバージョンで削除される予定です。
-- `target` _Optional[str]_ - Sandboxのターゲットランナー場所。ここまたは環境変数`DAYTONA_TARGET`で設定されていない場合、デフォルトで`'us'`になります。
+- `target` _Optional[str]_ - Sandboxのターゲットランナーの場所。ここまたは環境変数`DAYTONA_TARGET`で設定されていない場合は、デフォルトで`'us'`になります。
   
 
 **例**:
@@ -400,14 +400,14 @@ class CreateSandboxBaseParams(BaseModel)
 
 - `language` _Optional[CodeLanguage]_ - Sandboxのプログラミング言語。デフォルトは"python"。
 - `os_user` _Optional[str]_ - SandboxのOSユーザー。
-- `env_vars` _Optional[Dict[str, str]]_ - Sandboxに設定する環境変数。
+- `env_vars` _Optional[Dict[str, str]]_ - Sandboxで設定する環境変数。
 - `labels` _Optional[Dict[str, str]]_ - Sandboxのカスタムラベル。
 - `public` _Optional[bool]_ - Sandboxを公開するかどうか。
 - `timeout` _Optional[float]_ - Sandboxが作成され開始されるまでのタイムアウト（秒）。
-- `auto_stop_interval` _Optional[int]_ - その時間内にSandboxイベントが発生しなかった場合に
+- `auto_stop_interval` _Optional[int]_ - この時間内にSandboxイベントが発生しなかった場合に
   Sandboxが自動的に停止するまでの間隔（分）。デフォルトは15分。
   0は自動停止なしを意味する。
-- `auto_archive_interval` _Optional[int]_ - 継続的に停止されたSandboxが
+- `auto_archive_interval` _Optional[int]_ - 継続的に停止しているSandboxが
   自動的にアーカイブされるまでの間隔（分）。デフォルトは7日。
   0は最大間隔が使用されることを意味する。
 
@@ -419,7 +419,7 @@ class CreateSandboxFromImageParams(CreateSandboxBaseParams)
 
 イメージから新しいSandboxを作成するためのパラメータ。
 
-**属性**:
+**Attributes**:
 
 - `image` _Union[str, Image]_ - Sandboxに使用するカスタムDockerイメージ。Imageオブジェクトが提供された場合、
   イメージは動的にビルドされます。
@@ -434,7 +434,7 @@ class CreateSandboxFromSnapshotParams(CreateSandboxBaseParams)
 
 スナップショットから新しいSandboxを作成するためのパラメータ。
 
-**属性**:
+**Attributes**:
 
 - `snapshot` _Optional[str]_ - Sandboxに使用するスナップショットの名前。
 

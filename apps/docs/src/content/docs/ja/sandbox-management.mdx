@@ -1,13 +1,13 @@
 ---
-title: Sandbox管理
+title: Sandbox Management
 ---
 
 import sandboxDiagram from '@assets/docs/sandbox-states.svg?raw'
 import { TabItem, Tabs } from '@astrojs/starlight/components'
 import Image from 'astro/components/Image.astro'
 
-SandboxはDaytonaによって管理される分離された開発環境です。このガイドでは、SDKを使用してSandboxを作成、管理、削除する方法について説明します。
-デフォルトでは、Sandboxは15分間の非アクティブ状態後に自動停止し、**1 vCPU**、**1GB RAM**、**3GiB disk**を使用します。
+Sandboxは、Daytonaによって管理される分離された開発環境です。このガイドでは、SDKを使用してSandboxを作成、管理、削除する方法について説明します。
+デフォルトでは、Sandboxは15分間の非アクティブ状態の後に自動停止し、**1 vCPU**、**1GB RAM**、**3GiBディスク**を使用します。
 
 ## Sandboxのライフサイクル
 
@@ -15,7 +15,7 @@ SandboxはDaytonaによって管理される分離された開発環境です。
 
 <Fragment set:html={sandboxDiagram} />
 
-デフォルトでは、sandboxは`15分`の非アクティブ状態後に自動停止し、停止してから`7日`後に自動アーカイブされます。Sandboxを中断なく無期限に実行し続けるには、作成時に自動停止値を`0`に設定してください。
+デフォルトでは、sandboxは`15分`の非アクティブ状態の後に自動停止し、停止してから`7日`後に自動アーカイブされます。Sandboxを中断なく無期限に実行し続けるには、作成時に自動停止値を`0`に設定してください。
 
 ## Sandboxの作成
 
@@ -140,7 +140,7 @@ main();
 すべてのリソースパラメータはオプションです。指定されていない場合、Daytonaは選択された言語とユースケースに適したデフォルト値を使用します。
 :::
 
-## Sandboxの情報
+## Sandbox情報
 
 Daytona SDKは、PythonとTypeScriptを使用してSandboxのID、ルートディレクトリ、ステータスなどの情報を取得するメソッドを提供します。
 
@@ -180,13 +180,13 @@ console.log(sandbox.state)
 </TabItem>
 </Tabs>
 
-特定のポートのプレビューURLを取得するには、[プレビューと認証](/docs/ja/preview-and-authentication)をご確認ください。
+特定のポートのプレビューURLを取得するには、[Preview & Authentication](/docs/ja/preview-and-authentication)をご確認ください。
 
 ## Sandboxの停止と開始
 
 Daytona SDKは、PythonとTypeScriptを使用してSandboxを停止および開始するメソッドを提供します。
 
-停止されたSandboxは、メモリ状態がクリアされる一方で、ファイルシステムの永続性を維持します。これらはディスク使用量のコストのみが発生し、必要に応じて再度開始することができます。
+停止されたSandboxは、メモリ状態がクリアされる一方で、ファイルシステムの永続性を維持します。これらはディスク使用量のコストのみが発生し、必要に応じて再び開始することができます。
 
 <Tabs>
 <TabItem label="Python" icon="seti:python">
@@ -229,16 +229,16 @@ await sandbox.start();
 </TabItem>
 </Tabs>
 
-停止状態は、Sandboxが近いうちに再度開始されることが予想される場合に使用すべきです。そうでなければ、ディスク使用量のコストを削減するために、Sandboxを停止してからアーカイブすることが推奨されます。
+停止状態は、Sandboxが近いうちに再び開始されることが予想される場合に使用すべきです。そうでなければ、ディスク使用量のコストを削減するために、Sandboxを停止してからアーカイブすることが推奨されます。
 
 ## Sandboxをアーカイブする
 
 Daytona SDKは、PythonとTypeScriptを使用してSandboxをアーカイブするメソッドを提供します。
 
 Sandboxがアーカイブされると、ファイルシステム全体の状態が非常にコスト効率の良いオブジェクトストレージに移動され、Sandboxを長期間利用可能な状態で保持することが可能になります。
-アーカイブされたSandboxの開始は、そのサイズに応じて、停止されたSandboxの開始よりも時間がかかります。
+アーカイブされたSandboxの開始は、停止されたSandboxの開始よりも時間がかかり、そのサイズに依存します。
 
-Sandboxはアーカイブする前に停止する必要があり、停止されたSandboxと同じ方法で再度開始することができます。
+Sandboxはアーカイブされる前に停止されている必要があり、停止されたSandboxと同じ方法で再び開始することができます。
 
 <Tabs>
   <TabItem label="Python" icon="seti:python">
@@ -270,7 +270,7 @@ await sandbox.delete();
 </Tabs>
 
 :::tip
-ターミナルでSandboxを管理することを好む場合は、[Daytona CLI](/docs/ja/getting-started#setting-up-the-daytona-cli)をチェックしてください：
+ターミナルを通じてSandboxを管理することを好む場合は、[Daytona CLI](/docs/ja/getting-started#setting-up-the-daytona-cli)をチェックしてください：
 
 ```bash
 daytona sandbox list
@@ -300,7 +300,7 @@ All sandboxes have been deleted
 
 ## 自動停止と自動アーカイブ
 
-Daytona Sandboxesは、ユーザー定義の間隔に基づいて自動的に停止およびアーカイブできます。
+Daytona Sandboxは、ユーザー定義の間隔に基づいて自動的に停止およびアーカイブできます。
 
 ### 自動停止間隔
 

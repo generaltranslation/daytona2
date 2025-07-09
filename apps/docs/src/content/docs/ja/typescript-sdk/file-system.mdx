@@ -42,8 +42,7 @@ createFolder(path: string, mode: string): Promise<void>
 
 **Parameters**:
 
-- `path` _string_ - ディレクトリを作成するパス。相対パスはユーザーの
-    ルートディレクトリを基準に解決されます。
+- `path` _string_ - ディレクトリを作成するパス。相対パスはユーザーのルートディレクトリを基準に解決されます。
 - `mode` _string_ - 8進数形式のディレクトリ権限（例："755"）
 
 
@@ -70,8 +69,7 @@ Sandboxからファイルまたはディレクトリを削除します。
 
 **Parameters**:
 
-- `path` _string_ - 削除するファイルまたはディレクトリのパス。相対パスはユーザーの
-    ルートディレクトリを基準に解決されます。
+- `path` _string_ - 削除するファイルまたはディレクトリのパス。相対パスはユーザーのルートディレクトリを基準に解決されます。
 
 
 **Returns**:
@@ -95,15 +93,12 @@ await fs.deleteFile('app/temp.log');
 downloadFile(remotePath: string, timeout?: number): Promise<Buffer<ArrayBufferLike>>
 ```
 
-Sandboxからファイルをダウンロードします。このメソッドはファイル全体をメモリに読み込むため、
-大きなファイルのダウンロードには推奨されません。
+Sandboxからファイルをダウンロードします。このメソッドはファイル全体をメモリに読み込むため、大きなファイルのダウンロードには推奨されません。
 
 **Parameters**:
 
-- `remotePath` _string_ - ダウンロードするファイルのパス。相対パスはユーザーの
-    ルートディレクトリを基準に解決されます。
-- `timeout?` _number_ - ダウンロード操作のタイムアウト（秒）。0はタイムアウトなしを意味します。
-    デフォルトは30分です。
+- `remotePath` _string_ - ダウンロードするファイルのパス。相対パスはユーザーのルートディレクトリを基準に解決されます。
+- `timeout?` _number_ - ダウンロード操作のタイムアウト（秒）。0は無制限を意味します。デフォルトは30分です。
 
 **Returns**:
 
@@ -126,16 +121,13 @@ downloadFile(
 timeout?: number): Promise<void>
 ```
 
-Sandboxからファイルをダウンロードしてローカルファイルに保存します。このメソッドはストリーミングを使用してファイルをダウンロードするため、
-大きなファイルのダウンロードに推奨されます。
+Sandboxからファイルをダウンロードし、ローカルファイルに保存します。このメソッドはストリーミングを使用してファイルをダウンロードするため、大きなファイルのダウンロードに推奨されます。
 
 **Parameters**:
 
-- `remotePath` _string_ - Sandbox内でダウンロードするファイルのパス。相対パスはユーザーの
-    ルートディレクトリを基準に解決されます。
+- `remotePath` _string_ - Sandbox内でダウンロードするファイルのパス。相対パスはユーザーのルートディレクトリを基準に解決されます。
 - `localPath` _string_ - ダウンロードしたファイルを保存するパス。
-- `timeout?` _number_ - ダウンロード操作のタイムアウト（秒）。0はタイムアウトなしを意味します。
-    デフォルトは30分です。
+- `timeout?` _number_ - ダウンロード操作のタイムアウト（秒）。0は無制限を意味します。デフォルトは30分です。
 
 **Returns**:
 
@@ -160,8 +152,7 @@ Sandbox内のファイル内でテキストパターンを検索します。
 
 **Parameters**:
 
-- `path` _string_ - 検索するディレクトリ。相対パスはユーザーの
-    ルートディレクトリを基準に解決されます。
+- `path` _string_ - 検索するディレクトリ。相対パスはユーザーのルートディレクトリを基準に解決されます。
 - `pattern` _string_ - 検索パターン
 
 
@@ -191,8 +182,7 @@ getFileDetails(path: string): Promise<FileInfo>
 
 **Parameters**:
 
-- `path` _string_ - ファイルまたはディレクトリのパス。相対パスはユーザーの
-    ルートディレクトリを基準に解決されます。
+- `path` _string_ - ファイルまたはディレクトリのパス。相対パスはユーザーのルートディレクトリを基準に解決されます。
 
 
 **Returns**:
@@ -230,7 +220,7 @@ Sandboxのディレクトリの内容を一覧表示します。
 **例:**
 
 ```ts
-// ディレクトリの内容を一覧表示
+// List directory contents
 const files = await fs.listFiles('app/src');
 files.forEach(file => {
   console.log(`${file.name} (${file.size} bytes)`);
@@ -262,7 +252,7 @@ moveFiles(source: string, destination: string): Promise<void>
 **例:**
 
 ```ts
-// ファイルを新しい場所に移動
+// Move a file to a new location
 await fs.moveFiles('app/temp/data.json', 'app/data/data.json');
 ```
 
@@ -277,7 +267,7 @@ replaceInFiles(
 newValue: string): Promise<ReplaceResult[]>
 ```
 
-複数のファイル内のテキスト内容を置換します。
+複数のファイル内のテキストコンテンツを置換します。
 
 **パラメータ**:
 
@@ -293,7 +283,7 @@ newValue: string): Promise<ReplaceResult[]>
 **例:**
 
 ```ts
-// 複数のファイルでバージョン番号を更新
+// Update version number across multiple files
 const results = await fs.replaceInFiles(
   ['app/package.json', 'app/version.ts'],
   '"version": "1.0.0"',
@@ -324,7 +314,7 @@ Sandbox内で名前パターンによってファイルとディレクトリを�
 **例:**
 
 ```ts
-// すべてのTypeScriptファイルを検索
+// Find all TypeScript files
 const result = await fs.searchFiles('app', '*.ts');
 result.files.forEach(file => console.log(file));
 ```
@@ -353,11 +343,11 @@ setFilePermissions(path: string, permissions: FilePermissionsParams): Promise<vo
 **例:**
 
 ```ts
-// ファイルの権限と所有権を設定
+// Set file permissions and ownership
 await fs.setFilePermissions('app/script.sh', {
   owner: 'daytona',
   group: 'users',
-  mode: '755'  // シェルスクリプトの実行権限
+  mode: '755'  // Execute permission for shell script
 });
 ```
 
@@ -381,7 +371,7 @@ Sandboxにファイルをアップロードします。このメソッドはフ�
 - `file` _Buffer_ - アップロードするファイルのBuffer。
 - `remotePath` _string_ - Sandbox内の宛先パス。相対パスはユーザーの
     ルートディレクトリを基準に解決されます。
-- `timeout?` _number_ - アップロード操作のタイムアウト（秒）。0はタイムアウトなしを意味します。
+- `timeout?` _number_ - アップロード操作のタイムアウト（秒）。0は無制限を意味します。
     デフォルトは30分です。
 
 **戻り値**:
@@ -391,7 +381,7 @@ Sandboxにファイルをアップロードします。このメソッドはフ�
 **例:**
 
 ```ts
-// 設定ファイルをアップロード
+// Upload a configuration file
 await fs.uploadFile(Buffer.from('{"setting": "value"}'), 'tmp/config.json');
 ```
 
@@ -412,7 +402,7 @@ timeout?: number): Promise<void>
 - `localPath` _string_ - アップロードするローカルファイルのパス。
 - `remotePath` _string_ - Sandbox内の宛先パス。相対パスはユーザーの
     ルートディレクトリを基準に解決されます。
-- `timeout?` _number_ - アップロード操作のタイムアウト（秒）。0は無制限を意味します。
+- `timeout?` _number_ - アップロード操作のタイムアウト（秒）。0はタイムアウトなしを意味します。
     デフォルトは30分です。
 
 **戻り値**:
@@ -440,7 +430,7 @@ uploadFiles(files: FileUpload[], timeout?: number): Promise<void>
 **パラメータ**:
 
 - `files` _FileUpload\[\]_ - アップロードするファイルの配列。
-- `timeout?` _number = ..._ - アップロード操作のタイムアウト（秒）。0は無制限を意味します。
+- `timeout?` _number = ..._ - アップロード操作のタイムアウト（秒）。0はタイムアウトなしを意味します。
     デフォルトは30分です。
 
 
@@ -501,7 +491,6 @@ Sandboxにアップロードするファイルを表します。
 
 **プロパティ**:
 
-- `destination` _string_ - Sandbox内の絶対宛先パス。相対パスはユーザーの
-    ルートディレクトリを基準に解決されます。
+- `destination` _string_ - Sandbox内の絶対宛先パス。相対パスはユーザーのルートディレクトリを基準に解決されます。
 - `source` _string \| Buffer\<ArrayBufferLike\>_ - アップロードするファイル。Bufferの場合、メモリに読み込まれるファイルコンテンツとして解釈されます。
     メモリに収まることを確認してください。そうでなければ、コンテンツがSandboxにストリーミングされるローカルファイルパスを使用してください。

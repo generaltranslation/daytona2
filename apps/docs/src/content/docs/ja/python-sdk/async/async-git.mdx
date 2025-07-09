@@ -56,8 +56,8 @@ def __init__(sandbox_id: str, toolbox_api: ToolboxApi,
 async def add(path: str, files: List[str]) -> None
 ```
 
-指定されたファイルを次のコミット用にステージします。コマンドラインで
-'git add'を実行するのと同様です。
+指定されたファイルを次のコミット用にステージします。これは
+コマンドラインで'git add'を実行するのと同様です。
 
 **引数**:
 
@@ -120,15 +120,15 @@ async def clone(url: str,
 ```
 
 Gitリポジトリを指定されたパスにクローンします。特定の
-ブランチやコミットのクローンをサポートし、認証情報が提供されている場合は
-リモートリポジトリで認証できます。
+ブランチやコミットのクローンをサポートし、認証情報が提供された場合は
+リモートリポジトリで認証を行うことができます。
 
 **引数**:
 
 - `url` _str_ - クローン元のリポジトリURL。
 - `path` _str_ - リポジトリをクローンするパス。相対パスはユーザーの
   ルートディレクトリを基準に解決されます。
-- `branch` _Optional[str]_ - クローンする特定のブランチ。指定されていない場合は
+- `branch` _Optional[str]_ - クローンする特定のブランチ。指定されない場合は
   デフォルトブランチをクローンします。
 - `commit_id` _Optional[str]_ - クローンする特定のコミット。指定された場合、
   リポジトリはこのコミットでdetached HEADの状態になります。
@@ -352,7 +352,7 @@ async def delete_branch(path: str, name: str) -> None
 **例**:
 
 ```python
-# Delete a branch
+# ブランチを削除
 await sandbox.git.delete_branch("workspace/repo", "old-feature")
 ```
 

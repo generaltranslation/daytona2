@@ -49,12 +49,12 @@ def list() -> List[Snapshot]
 
 すべてのSnapshotを一覧表示します。
 
-**戻り値**:
+**Returns**:
 
 - `List[Snapshot]` - すべてのSnapshotのリスト。
   
 
-**例**:
+**Example**:
 
 ```python
 daytona = Daytona()
@@ -72,12 +72,12 @@ def delete(snapshot: Snapshot) -> None
 
 Snapshotを削除します。
 
-**引数**:
+**Arguments**:
 
 - `snapshot` _Snapshot_ - 削除するSnapshot。
   
 
-**例**:
+**Example**:
 
 ```python
 daytona = Daytona()
@@ -95,17 +95,17 @@ def get(name: str) -> Snapshot
 
 名前でSnapshotを取得します。
 
-**引数**:
+**Arguments**:
 
 - `name` _str_ - 取得するSnapshotの名前。
   
 
-**戻り値**:
+**Returns**:
 
 - `Snapshot` - Snapshotオブジェクト。
   
 
-**例**:
+**Example**:
 
 ```python
 daytona = Daytona()
@@ -127,13 +127,13 @@ def create(params: CreateSnapshotParams,
 
 指定されたImage定義から新しいスナップショットを作成し、登録します。
 
-**引数**:
+**Arguments**:
 
 - `params` _CreateSnapshotParams_ - スナップショット作成のパラメータ。
 - `on_logs` _Callable[[str], None]_ - このコールバック関数はスナップショット作成ログを処理します。
 - `timeout` _Optional[float]_ - デフォルトはタイムアウトなし。タイムアウト時間（秒）（0はタイムアウトなしを意味します）。
 
-**例**:
+**Example**:
 
 ```python
 image = Image.debianSlim('3.12').pipInstall('numpy')
@@ -153,11 +153,11 @@ def process_image_context(object_storage_api: ObjectStorageApi,
 
 オブジェクトストレージにアップロードすることで、イメージコンテキストを処理します。
 
-**引数**:
+**Arguments**:
 
 - `image` _Image_ - Imageインスタンス。
 
-**戻り値**:
+**Returns**:
 
 - `List[str]` - オブジェクトストレージに保存されたコンテキストハッシュのリスト。
 

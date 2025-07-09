@@ -9,7 +9,7 @@ hideTitleOnPage: true
 class LspServer()
 ```
 
-コードインテリジェンス機能を提供するLanguage Server Protocol機能を提供し、コード補完、シンボル検索などのIDE風の機能を実現します。
+コード補完、シンボル検索などのIDE風機能を提供するため、コードインテリジェンス用のLanguage Server Protocol機能を提供します。
 
 #### LspServer.\_\_init\_\_
 
@@ -20,7 +20,7 @@ def __init__(language_id: LspLanguageId, path_to_project: str,
 
 新しいLSPサーバーインスタンスを初期化します。
 
-**引数**:
+**Arguments**:
 
 - `language_id` _LspLanguageId_ - 言語サーバーのタイプ（例：LspLanguageId.TYPESCRIPT）。
 - `path_to_project` _str_ - プロジェクトルートディレクトリへの絶対パス。
@@ -37,14 +37,14 @@ def start() -> None
 言語サーバーを開始します。
 
 このメソッドは、他のLSP機能を使用する前に呼び出す必要があります。
-指定された言語とプロジェクトに対して言語サーバーを初期化します。
+指定された言語とプロジェクト用の言語サーバーを初期化します。
 
-**例**:
+**Example**:
 
 ```python
 lsp = sandbox.create_lsp_server("typescript", "workspace/project")
-lsp.start()  # サーバーを初期化
-# LSP操作の準備完了
+lsp.start()  # Initialize the server
+# Now ready for LSP operations
 ```
 
 #### LspServer.stop
@@ -56,14 +56,14 @@ def stop() -> None
 
 言語サーバーを停止します。
 
-このメソッドは、LSPサーバーが不要になった際にシステムリソースを
+このメソッドは、LSPサーバーが不要になったときにシステムリソースを
 解放するために呼び出す必要があります。
 
-**例**:
+**Example**:
 
 ```python
-# LSP機能の使用が完了した場合
-lsp.stop()  # リソースをクリーンアップ
+# When done with LSP features
+lsp.stop()  # Clean up resources
 ```
 
 #### LspServer.did\_open
@@ -75,22 +75,22 @@ def did_open(path: str) -> None
 
 ファイルが開かれたことを言語サーバーに通知します。
 
-このメソッドは、エディタでファイルが開かれた際に呼び出して、そのファイルに対する
+このメソッドは、エディターでファイルが開かれたときに呼び出して、そのファイルに対する
 診断や補完などの言語機能を有効にする必要があります。サーバーは
 ファイルの内容の追跡を開始し、言語機能を提供します。
 
-**引数**:
+**Arguments**:
 
-- `path` _str_ - 開かれたファイルへのパス。相対パスはLSPサーバーコンストラクタで設定された
-  プロジェクトパスを基準に解決されます。
+- `path` _str_ - 開かれたファイルへのパス。相対パスは、LSPサーバーコンストラクターで設定された
+  プロジェクトパスに基づいて解決されます。
   
 
-**例**:
+**Example**:
 
 ```python
-# 編集用にファイルを開く場合
+# When opening a file for editing
 lsp.did_open("workspace/project/src/index.ts")
-# このファイルに対して補完、シンボルなどを取得可能
+# Now can get completions, symbols, etc. for this file
 ```
 
 #### LspServer.did\_close
@@ -102,19 +102,19 @@ def did_close(path: str) -> None
 
 ファイルが閉じられたことを言語サーバーに通知します。
 
-このメソッドは、エディタでファイルが閉じられた際に呼び出して、
+このメソッドは、エディターでファイルが閉じられたときに呼び出して、
 言語サーバーがそのファイルに関連するリソースをクリーンアップできるようにする必要があります。
 
-**引数**:
+**Arguments**:
 
-- `path` _str_ - 閉じられたファイルへのパス。相対パスはLSPサーバーコンストラクタで設定された
-  プロジェクトパスを基準に解決されます。
+- `path` _str_ - 閉じられたファイルへのパス。相対パスは、LSPサーバーコンストラクターで設定された
+  プロジェクトパスに基づいて解決されます。
   
 
-**例**:
+**Example**:
 
 ```python
-# ファイルの編集が完了した場合
+# When done editing a file
 lsp.did_close("workspace/project/src/index.ts")
 ```
 
@@ -127,24 +127,24 @@ def document_symbols(path: str) -> List[LspSymbol]
 
 ドキュメントからシンボル情報（関数、クラス、変数など）を取得します。
 
-**引数**:
+**Arguments**:
 
-- `path` _str_ - シンボルを取得するファイルへのパス。相対パスはLSPサーバーコンストラクタで設定された
-  プロジェクトパスを基準に解決されます。
+- `path` _str_ - シンボルを取得するファイルへのパス。相対パスは、LSPサーバーコンストラクターで設定された
+  プロジェクトパスに基づいて解決されます。
   
 
-**戻り値**:
+**Returns**:
 
 - `List[LspSymbol]` - ドキュメント内のシンボルのリスト。各シンボルには以下が含まれます：
   - name: シンボルの名前
   - kind: シンボルの種類（関数、クラス、変数など）
-  - location: ファイル内でのシンボルの位置
+  - location: ファイル内のシンボルの位置
   
 
-**例**:
+**Example**:
 
 ```python
-# ファイル内のすべてのシンボルを取得
+# Get all symbols in a file
 symbols = lsp.document_symbols("workspace/project/src/index.ts")
 for symbol in symbols:
     print(f"{symbol.kind} {symbol.name}: {symbol.location}")
@@ -160,15 +160,14 @@ for symbol in symbols:
 def workspace_symbols(query: str) -> List[LspSymbol]
 ```
 
-Sandbox内のすべてのファイルから、クエリ文字列に一致するシンボルを
-検索します。
+Sandbox内のすべてのファイルでクエリ文字列に一致するシンボルを検索します。
 
-**引数**:
+**Arguments**:
 
 - `query` _str_ - シンボル名と照合する検索クエリ。
   
 
-**戻り値**:
+**Returns**:
 
 - `List[LspSymbol]` - すべてのファイルから一致するシンボルのリスト。
 

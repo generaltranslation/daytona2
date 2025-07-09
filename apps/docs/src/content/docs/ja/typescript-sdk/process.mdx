@@ -30,7 +30,7 @@ new CodeRunParams(): CodeRunParams
 - `CodeRunParams`
 ## Process
 
-Sandbox内でプロセスとコード実行を処理します。
+Sandbox内でのプロセスとコード実行を処理します。
 
 ### Constructors
 
@@ -78,10 +78,10 @@ timeout?: number): Promise<ExecuteResponse>
 
 **Returns**:
 
-- `Promise<ExecuteResponse>` - 以下を含むコード実行結果:
+- `Promise<ExecuteResponse>` - 以下を含むコード実行結果：
     - exitCode: 実行の終了ステータス
     - result: コードからの標準出力
-    - artifacts: `stdout`（resultと同じ）と`charts`（matplotlibチャートメタデータ）を含むExecutionArtifactsオブジェクト
+    - artifacts: `stdout`（resultと同じ）と`charts`（matplotlibチャートのメタデータ）を含むExecutionArtifactsオブジェクト
 
 **Examples:**
 
@@ -144,7 +144,7 @@ createSession(sessionId: string): Promise<void>
 
 Sandbox内に新しい長時間実行バックグラウンドセッションを作成します。
 
-セッションは、コマンド間で状態を維持するバックグラウンドプロセスであり、複数の関連コマンドや永続的な環境設定が必要なシナリオに最適です。長時間実行コマンドを実行し、プロセスステータスを監視できます。
+セッションは、コマンド間で状態を維持するバックグラウンドプロセスであり、複数の関連するコマンドや永続的な環境設定が必要なシナリオに最適です。長時間実行コマンドを実行し、プロセスステータスを監視できます。
 
 **Parameters**:
 
@@ -225,18 +225,18 @@ Sandboxでシェルコマンドを実行します。
 **例:**
 
 ```ts
-// Simple command
+// 簡単なコマンド
 const response = await process.executeCommand('echo "Hello"');
-console.log(response.artifacts.stdout);  // Prints: Hello
+console.log(response.artifacts.stdout);  // 出力: Hello
 ```
 
 ```ts
-// Command with working directory
+// 作業ディレクトリを指定したコマンド
 const result = await process.executeCommand('ls', 'workspace/src');
 ```
 
 ```ts
-// Command with timeout
+// タイムアウトを指定したコマンド
 const result = await process.executeCommand('sleep 10', undefined, 5);
 ```
 
@@ -272,19 +272,19 @@ timeout?: number): Promise<SessionExecuteResponse>
 **例:**
 
 ```ts
-// Execute commands in sequence, maintaining state
+// 状態を維持しながらコマンドを順次実行
 const sessionId = 'my-session';
 
-// Change directory
+// ディレクトリを変更
 await process.executeSessionCommand(sessionId, {
   command: 'cd /home/daytona'
 });
 
-// Run command in new directory
+// 新しいディレクトリでコマンドを実行
 const result = await process.executeSessionCommand(sessionId, {
   command: 'pwd'
 });
-console.log(result.output);  // Prints: /home/daytona
+console.log(result.output);  // 出力: /home/daytona
 ```
 
 ***
@@ -295,7 +295,7 @@ console.log(result.output);  // Prints: /home/daytona
 getSession(sessionId: string): Promise<Session>
 ```
 
-Sandboxでセッションを取得します。
+Sandbox内のセッションを取得します。
 
 **パラメータ**:
 
@@ -313,7 +313,7 @@ Sandboxでセッションを取得します。
 ```ts
 const session = await process.getSession('my-session');
 session.commands.forEach(cmd => {
-  console.log(`Command: ${cmd.command}`);
+  console.log(`コマンド: ${cmd.command}`);
 });
 ```
 
@@ -345,7 +345,7 @@ getSessionCommand(sessionId: string, commandId: string): Promise<Command>
 ```ts
 const cmd = await process.getSessionCommand('my-session', 'cmd-123');
 if (cmd.exitCode === 0) {
-  console.log(`Command ${cmd.command} completed successfully`);
+  console.log(`コマンド ${cmd.command} が正常に完了しました`);
 }
 ```
 
@@ -353,7 +353,7 @@ if (cmd.exitCode === 0) {
 
 #### getSessionCommandLogs()
 
-##### Call Signature
+##### 呼び出しシグネチャ
 
 ```ts
 getSessionCommandLogs(sessionId: string, commandId: string): Promise<string>
@@ -374,10 +374,10 @@ getSessionCommandLogs(sessionId: string, commandId: string): Promise<string>
 
 ```ts
 const logs = await process.getSessionCommandLogs('my-session', 'cmd-123');
-console.log('Command output:', logs);
+console.log('コマンド出力:', logs);
 ```
 
-##### Call Signature
+##### 呼び出しシグネチャ
 
 ```ts
 getSessionCommandLogs(

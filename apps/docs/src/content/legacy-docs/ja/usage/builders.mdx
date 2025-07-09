@@ -42,7 +42,7 @@ Daytonaは、あなたのプロジェクトに最も適切なBuilderを自動検
 1. リポジトリルートからの相対パスで、**`.devcontainer.json`** または **`.devcontainer/devcontainer.json`** にDev Container設定が存在するかチェックします。
 2. 存在する場合は、[Dev Container](#dev-container) Builderを使用します。存在しない場合は、[None](#none) Builderを使用します。
 
-自動Builderを使用するには、[ワークスペース作成](/docs/ja/usage/workspaces#create-a-workspace)時に`--builder`フラグの値を`auto`に設定します。このフラグは単一のプロジェクトでワークスペースを作成する場合にのみ適用されます。
+Automatic Builderを使用するには、[Workspace作成](/docs/ja/usage/workspaces#create-a-workspace)時に`--builder`フラグの値を`auto`に設定します。このフラグは単一のプロジェクトでWorkspaceを作成する場合にのみ適用されます。
 
 ```shell
 daytona create <REPO_URL> --builder=auto
@@ -56,7 +56,7 @@ Dev Container仕様は、異なるプラットフォームやCI/CDシステム�
 
 `devcontainer.json`ファイルは、開発環境を定義するコンポーネントで構成されるJSONファイルです。このファイルには、開発コンテナを設定するために必要なメタデータと設定を含むプロパティを持つオブジェクトが含まれています。詳細については、[dev container specification](https://containers.dev/implementors/json_reference/)をご覧ください。
 
-あなたのProjectの`devcontainer.json`ファイルを生成するには、[devcontainer.ai](https://devcontainer.ai/)を使用してください。
+[devcontainer.ai](https://devcontainer.ai/)を使用して、あなたのProject用の`devcontainer.json`ファイルを生成してください。
 
 `devcontainer.json`ファイルの例：
 
@@ -93,7 +93,7 @@ DaytonaはDev Container標準を使用してProjectイメージをビルドす�
 
 - **Devcontainer file path**
 
-   Dev Container設定が配置されているパス（リポジトリルートからの相対パス）。
+   リポジトリルートからの相対パスで、Dev Container設定が配置されている場所。
    デフォルト値は`.devcontainer/devcontainer.json`です。
 
 Dev Container Builderを使用するには、[Workspace creation](/docs/ja/usage/workspaces#create-a-workspace)中に`--devcontainer-path`フラグをリポジトリ内のDev Container設定パスに設定してください。このフラグは、単一のProjectでWorkspaceを作成する場合にのみ適用されます。
@@ -106,7 +106,7 @@ daytona create <REPO_URL> --devcontainer-path=.devcontainer/devcontainer.json
 Dev Container標準の詳細については、[containers.dev](https://containers.dev/)の公式ドキュメントを参照してください。
 :::
 
-## カスタムイメージ
+## Custom Image
 
 カスタムベースコンテナを指定してProjectイメージをビルドできます。
 このBuilderを使用する際は、以下のオプションが利用可能です：
