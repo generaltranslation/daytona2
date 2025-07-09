@@ -18,8 +18,6 @@ jobs:
           gt_api_key: ${{ secrets.GT_API_KEY }}
           gt_project_id: ${{ secrets.GT_PROJECT_ID }}
           config: 'apps/docs/gt.config.json'
-          locales: 'en ja'
-          default_language: 'en'
           inline: true
           pr_branch: 'gt-translate/${{ github.ref_name }}'
           pr_title: 'GT Translate: Translation updates for ${{ github.ref_name }} (${{ github.event.head_commit.message }})'
