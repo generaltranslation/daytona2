@@ -209,7 +209,7 @@ image = Image.debian_slim("3.12").run_commands(
 def env(env_vars: dict[str, str]) -> "Image"
 ```
 
-イメージ内で環境変数を設定します。
+イメージに環境変数を設定します。
 
 **引数**:
 
@@ -233,7 +233,7 @@ image = Image.debian_slim("3.12").env({"PROJECT_ROOT": "/home/daytona"})
 def workdir(path: Union[str, Path]) -> "Image"
 ```
 
-イメージ内で作業ディレクトリを設定します。
+イメージに作業ディレクトリを設定します。
 
 **引数**:
 
@@ -388,7 +388,7 @@ def debian_slim(
 
 **引数**:
 
-- `python_version` - Optional[SupportedPythonSeries]: 使用するPythonバージョン。
+- `python_version` - Optional[SupportedPythonSeries]: 使用するPythonのバージョン。
   
 
 **戻り値**:

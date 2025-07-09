@@ -6,9 +6,9 @@ hideTitleOnPage: true
 
 ## Image
 
-Daytonaサンドボックスのイメージ定義を表します。
+Daytona サンドボックスのイメージ定義を表します。
 このクラスを直接構築しないでください。代わりに、
-`Image.base()`、`Image.debianSlim()`、`Image.fromDockerfile()`などの静的ファクトリメソッドのいずれかを使用してください。
+`Image.base()`、`Image.debianSlim()`、`Image.fromDockerfile()` などの静的ファクトリメソッドのいずれかを使用してください。
 
 ### Accessors
 
@@ -38,7 +38,7 @@ get dockerfile(): string
 
 **Returns**:
 
-- `string` - Dockerfileの内容。
+- `string` - Dockerfile の内容。
 
 ### Methods
 
@@ -48,7 +48,7 @@ get dockerfile(): string
 static base(image: string): Image
 ```
 
-既存のベースイメージからImageを作成します。
+既存のベースイメージから Image を作成します。
 
 **Parameters**:
 
@@ -57,7 +57,7 @@ static base(image: string): Image
 
 **Returns**:
 
-- `Image` - Imageインスタンス。
+- `Image` - Image インスタンス。
 
 **Example:**
 
@@ -73,16 +73,16 @@ const image = Image.base('python:3.12-slim-bookworm')
 static debianSlim(pythonVersion?: "3.9" | "3.10" | "3.11" | "3.12" | "3.13"): Image
 ```
 
-公式のPython DockerイメージをベースにしたDebian slimイメージを作成します。
+公式の Python Docker イメージをベースにした Debian slim イメージを作成します。
 
 **Parameters**:
 
-- `pythonVersion?` _使用するPythonバージョン。_ - `"3.9"` | `"3.10"` | `"3.11"` | `"3.12"` | `"3.13"`
+- `pythonVersion?` _使用する Python バージョン。_ - `"3.9"` | `"3.10"` | `"3.11"` | `"3.12"` | `"3.13"`
 
 
 **Returns**:
 
-- `Image` - Imageインスタンス。
+- `Image` - Image インスタンス。
 
 **Example:**
 
@@ -98,16 +98,16 @@ const image = Image.debianSlim('3.12')
 static fromDockerfile(path: string): Image
 ```
 
-既存のDockerfileからImageを作成します。
+既存の Dockerfile から Image を作成します。
 
 **Parameters**:
 
-- `path` _string_ - Dockerfileへのパス。
+- `path` _string_ - Dockerfile へのパス。
 
 
 **Returns**:
 
-- `Image` - Imageインスタンス。
+- `Image` - Image インスタンス。
 
 **Example:**
 
@@ -133,7 +133,7 @@ addLocalDir(localPath: string, remotePath: string): Image
 
 **Returns**:
 
-- `Image` - Imageインスタンス。
+- `Image` - Image インスタンス。
 
 **Example:**
 
@@ -161,7 +161,7 @@ addLocalFile(localPath: string, remotePath: string): Image
 
 **Returns**:
 
-- `Image` - Imageインスタンス。
+- `Image` - Image インスタンス。
 
 **Example:**
 
@@ -188,7 +188,7 @@ cmd(cmd: string[]): Image
 
 **Returns**:
 
-- `Image` - Imageインスタンス。
+- `Image` - Image インスタンス。
 
 **Example:**
 
@@ -206,17 +206,17 @@ const image = Image
 dockerfileCommands(dockerfileCommands: string[], contextDir?: string): Image
 ```
 
-任意のDockerfile風コマンドでイメージを拡張します。
+任意の Dockerfile ライクなコマンドでイメージを拡張します。
 
 **Parameters**:
 
-- `dockerfileCommands` _string\[\]_ - Dockerfileに追加するコマンド。
+- `dockerfileCommands` _string\[\]_ - Dockerfile に追加するコマンド。
 - `contextDir?` _string_ - コンテキストディレクトリへのパス。
 
 
 **Returns**:
 
-- `Image` - Imageインスタンス。
+- `Image` - Image インスタンス。
 
 **Example:**
 
@@ -243,7 +243,7 @@ entrypoint(entrypointCommands: string[]): Image
 
 **Returns**:
 
-- `Image` - Imageインスタンス。
+- `Image` - Image インスタンス。
 
 **Example:**
 

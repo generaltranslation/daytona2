@@ -1,7 +1,9 @@
 {
   "framework": "react",
   "defaultLocale": "en",
-  "src": ["apps/docs/src/components/**/*.{ts,tsx}"],
+  "src": [
+    "apps/docs/src/components/**/*.{ts,tsx}"
+  ],
   "files": {
     "mdx": {
       "include": [
@@ -16,13 +18,18 @@
       ]
     },
     "json": {
-      "include": ["apps/docs/src/content/i18n/[locale].json"]
+      "include": [
+        "apps/docs/src/content/i18n/[locale].json"
+      ]
     },
     "gt": {
       "output": "apps/docs/src/data/i18n/[locale].json"
     }
   },
-  "locales": ["en", "ja"],
+  "locales": [
+    "en",
+    "ja"
+  ],
   "ssr": true,
   "_versionId": "0077a5e99cd790092fdf53827bc76ada31ebe28b9b4d7182511ea6bea49fb123"
 }

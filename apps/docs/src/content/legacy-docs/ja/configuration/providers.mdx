@@ -19,7 +19,7 @@ Providersは、Daytonaがさまざまなテクノロジーと統合して開発�
 
 Daytonaのアーキテクチャは、Providerの役割を別のサービスに分散化しています。[Daytona Server](/docs/ja/usage/server)は、Workspaceの作成とライフサイクル管理に関する操作を実行するためにProvidersと通信します。
 
-## Providerをインストールする
+## Providerのインストール
 
 DaytonaはDaytona ServerとインターフェースするためのProviderをインストールするオプションを提供します。新しいProviderがインストールされると、Workspaceのデプロイメントとそのライフサイクル管理を行います。
 
@@ -69,7 +69,7 @@ Provider <provider> has been successfully installed
 
 Daytonaは、インストールされているすべてのProviderを一覧表示するオプションを提供し、Workspaceの管理に利用可能なProviderの概要を確認できます。
 
-1. インストールされているすべてのProviderを一覧表示するには、以下のコマンドを実行してください：
+1. 以下のコマンドを実行して、インストールされているすべてのProviderを一覧表示します：
 
 ```shell
 daytona provider list
@@ -192,7 +192,7 @@ Provider docker-provider has been successfully installed
 
 ## DigitalOcean
 
-DigitalOcean Providerを使用すると、DaytonaはDropletsとして知られるDigitalOcean VM上でWorkspaceプロジェクトを作成できます。このProviderはDaytonaをDigitalOceanと統合し、柔軟でスケーラブルなクラウドプラットフォーム上でWorkspaceを管理できるようにします。
+DigitalOcean ProviderはDaytonaがDigitalOcean VM（Dropletとして知られる）上でWorkspaceプロジェクトを作成することを可能にします。このProviderはDaytonaをDigitalOceanと統合し、柔軟でスケーラブルなクラウドプラットフォーム上でWorkspaceを管理できるようにします。
 
 1. 以下のコマンドを実行してDigitalOcean Providerをインストールします：
 
@@ -219,7 +219,7 @@ Choose a provider to install
   v0.0.0
 ```
 
-Providerを選択すると、Daytonaは選択されたProviderをインストールして設定し、Workspaceの管理とデプロイに使用できるようにします。
+Providerを選択すると、Daytonaは選択されたProviderをインストールして設定し、Workspaceの管理とデプロイに利用できるようにします。
 
 ```text
 ⡿  Installing...
@@ -231,11 +231,11 @@ Provider digitalocean-provider has been successfully installed
 
 ## AWS
 
-AWS Providerを使用すると、DaytonaがAmazon EC2インスタンス上でWorkspaceプロジェクトを作成および管理できるようになります。このProviderはDaytonaをAWSと統合し、スケーラブルで柔軟なクラウド環境でWorkspaceを管理できるようにします。
+AWS Providerを使用すると、DaytonaがAmazon EC2インスタンス上でWorkspaceプロジェクトを作成・管理できるようになります。このProviderはDaytonaをAWSと統合し、スケーラブルで柔軟なクラウド環境でWorkspaceを管理できるようにします。
 
-AWS Providerを使用するには、AWSプログラマティックアクセスユーザーが`AmazonEC2FullAccess`権限を持っていることを確認してください。このポリシーは、EC2インスタンスを管理するために必要な権限を付与し、DaytonaのWorkspaceプロジェクトの作成と管理に不可欠です。
+AWS Providerを使用するには、AWSプログラマティックアクセスユーザーが`AmazonEC2FullAccess`権限を持っていることを確認してください。このポリシーは、DaytonaのWorkspaceプロジェクトの作成と管理に不可欠なEC2インスタンスを管理するために必要な権限を付与します。
 
-1. 次のコマンドを実行してAWS Providerをインストールします：
+1. 以下のコマンドを実行してAWS Providerをインストールします：
 
 ```shell
 daytona provider install
@@ -272,7 +272,7 @@ Provider aws-provider has been successfully installed
 
 ## Azure
 
-Azure Providerを使用すると、DaytonaはAzureコンピュートインスタンス上でWorkspaceプロジェクトを作成できます。ProviderはDaytonaをAzureと統合し、スケーラブルで柔軟なクラウド環境でWorkspaceを管理できるようにします。
+Azure Providerを使用すると、DaytonaはAzureコンピュートインスタンス上でWorkspaceプロジェクトを作成できます。このProviderはDaytonaをAzureと統合し、スケーラブルで柔軟なクラウド環境でWorkspaceを管理できるようにします。
 
 1. 次のコマンドを実行してAzure Providerをインストールします：
 
@@ -324,7 +324,7 @@ az ad sp create-for-rbac --role Contributor --scopes /subscriptions/<subscriptio
 
 ## GCP
 
-GCP Providerを使用すると、DaytonaはGoogle Cloud Platform（GCP）コンピュートインスタンス上でWorkspaceプロジェクトを作成できます。このProviderはDaytonaをGCPと統合し、スケーラブルで柔軟なクラウド環境でWorkspaceを管理できるようにします。
+GCP Providerを使用すると、DaytonaはGoogle Cloud Platform（GCP）のコンピュートインスタンス上でWorkspaceプロジェクトを作成できます。このProviderはDaytonaをGCPと統合し、スケーラブルで柔軟なクラウド環境でWorkspaceを管理できるようにします。
 
 :::note
 GCP Providerを使用する前に、`Compute Admin`ロールを持つGCPサービスアカウントを作成してください。サービスアカウントキーをJSON形式でダウンロードし、認証のためにGCP providerに提供してください。サービスアカウントの作成と設定に関する詳細な手順は[こちら](https://cloud.google.com/iam/docs/service-accounts-create#console)で確認できます。
@@ -332,7 +332,7 @@ GCP Providerを使用する前に、`Compute Admin`ロールを持つGCPサー�
 
 <br />
 
-1. 次のコマンドを実行してGCP Providerをインストールします：
+1. 以下のコマンドを実行してGCP Providerをインストールします：
 
 ```shell
 daytona provider install
@@ -369,11 +369,11 @@ Provider gcp-provider has been successfully installed
 
 ## Hetzner
 
-Hetzner ProviderはDaytonaがHetzner Cloud VM上でWorkspaceプロジェクトを作成することを可能にします。このProviderはDaytonaとHetznerを統合し、スケーラブルで柔軟なクラウド環境でWorkspaceを管理できるようにします。
+Hetzner ProviderはDaytonaがHetzner Cloud VM上でWorkspaceプロジェクトを作成することを可能にします。このProviderはDaytonaをHetznerと統合し、スケーラブルで柔軟なクラウド環境でWorkspaceを管理できるようにします。
 
 <br />
 
-1. 以下のコマンドを実行してHetzner Providerをインストールします：
+1. 次のコマンドを実行してHetzner Providerをインストールします：
 
 ```shell
 daytona provider install

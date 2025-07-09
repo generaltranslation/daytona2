@@ -11,7 +11,7 @@ import Label from '@components/Label.astro'
 
 Target Configurationとは、さまざまな[Providers](/docs/ja/configuration/providers)によって促進される開発セットアップがデプロイされ、管理される特定の宛先または環境を指します。Providersは環境を作成するために使用される方法と技術を定義し、Target Configurationsはこれらの環境が存在する正確な場所またはプラットフォームを指定します。
 
-Target Configurationは、ローカルマシン、リモートサーバー、またはクラウドインスタンスであり、選択されたProviderに基づいて変化することができます。Target Configurationsは、Daytonaが提供する統一されたインターフェース内で、異なるプラットフォームとアカウント間で環境をデプロイし、管理する柔軟性を提供します。
+Target Configurationは、ローカルマシン、リモートサーバー、またはクラウドインスタンスであり、選択されたProviderに基づいて変化することができます。Target Configurationsは、Daytonaが提供する統一されたインターフェース内で、異なるプラットフォームやアカウント間で環境をデプロイし、管理する柔軟性を提供します。
 
 Target Configurationを追加すると、Daytonaで新しい開発環境を作成する際に選択できるようになります。複数のTarget Configurationsを作成したり、既存のものをリストしたり、不要になったものを削除したりできます。
 
@@ -110,9 +110,9 @@ local             docker-provider         local
 
 ## Target Configurationの削除
 
-Daytonaは、Target Configurationを削除するオプションを提供し、不要になったものを管理および削除するのに役立ちます。Target Configurationが削除されると、そのTarget Configuration上でWorkspaceを管理またはデプロイすることができなくなります。
+Daytonaは、Target Configurationを削除するオプションを提供し、不要になったものを管理・削除するのに役立ちます。Target Configurationが削除されると、そのTarget Configuration上でWorkspaceを管理またはデプロイすることができなくなります。
 
-1. 次のコマンドを実行してTarget Configurationを削除します：
+1. 以下のコマンドを実行してTarget Configurationを削除します：
 
 ```shell
 daytona target-config delete
@@ -145,7 +145,7 @@ Target Config MyTarget removed successfully
 
 ## Docker (ローカル)
 
-Daytonaは、ワークスペースのデプロイと管理に使用するローカルDockerターゲット設定を作成するオプションを提供します。ローカルDockerターゲット設定により、Dockerを使用してローカルマシン上にワークスペースをデプロイできます。
+Daytonaは、Workspaceのデプロイと管理に使用するローカルDockerターゲット設定を作成するオプションを提供します。ローカルDockerターゲット設定により、Dockerを使用してローカルマシン上にWorkspaceをデプロイできます。
 
 :::note
 ローカルDockerターゲット設定を作成する前に、[Docker](https://docs.docker.com/engine/install/)がローカルマシンにインストールされ、実行されていることを確認してください。
@@ -293,7 +293,7 @@ v0.0.0
 ```
 
 :::note
-以前に[Runner](/docs/ja/usage/runners)をインストールしていない場合、DaytonaはProviderを管理するRunnerを選択するよう求めます。選択すると、DaytonaはターゲットシステムにRunnerをインストールし、Daytona Serverに接続します。
+以前に[Runner](/docs/ja/usage/runners)をインストールしていない場合、DaytonaはProviderを管理するRunnerを選択するよう促します。選択すると、DaytonaはターゲットシステムにRunnerをインストールし、Daytona Serverに接続します。
 :::
 
 <br />
@@ -325,7 +325,7 @@ Size
 >
 ```
 
-5. **`Enter`**をクリックしてTarget Configurationの設定を確定します。
+5. **`Enter`**をクリックしてTarget Configurationの設定を確認します。
 
 ```text
 Target Config <target_config> created successfully
@@ -352,7 +352,7 @@ v0.0.0
 ```
 
 :::note
-以前に[Runner](/docs/ja/usage/runners)をインストールしていない場合、DaytonaはProviderを管理するRunnerの選択を求めます。選択すると、DaytonaはターゲットシステムにRunnerをインストールし、Daytona Serverに接続します。
+以前に[Runner](/docs/ja/usage/runners)をインストールしていない場合、DaytonaはProviderを管理するRunnerを選択するよう促します。選択すると、DaytonaはターゲットシステムにRunnerをインストールし、Daytona Serverに接続します。
 :::
 
 <br />
@@ -425,9 +425,9 @@ Target Config <target_config> created successfully
 
 ## Azure
 
-Daytonaはワークスペースのデプロイと管理に使用するAzure Target Configurationを設定するオプションを提供します。
+DaytonaはWorkspaceのデプロイと管理に使用するAzure Target Configurationを設定するオプションを提供します。
 
-1. 以下のコマンドを実行してTarget Configurationを設定します：
+1. 次のコマンドを実行してTarget Configurationを設定します：
 
 ```shell
 daytona target-config set
@@ -466,19 +466,18 @@ https://learn.microsoft.com/en-us/cli/azure/azure-cli-sp-tutorial-1?tabs=bash
 >
 
 Client Secret
-AZURE_CLIENT_SECRET環境変数を設定している場合は空白のままにするか、ここでClient     
-Secretを入力してください。
-これを見つけるには、クライアント認証情報を生成した後の出力で「password」を探してください
+AZURE_CLIENT_SECRET環境変数を設定している場合は空白のままにするか、ここでClient Secretを入力してください。
+これを見つけるには、クライアント認証情報を生成した後の出力で「password」を探してください。
 https://learn.microsoft.com/en-us/cli/azure/azure-cli-sp-tutorial-1?tabs=bash
 >
 
 Disk Size
-インスタンスボリュームのサイズ（GB単位）。デフォルトは30 GBです。ディスクサイズは30 GB以上にすることを推奨します。
+インスタンスボリュームのサイズ（GB単位）。デフォルトは30GBです。ディスクサイズは30GB以上にすることを推奨します。
 >
 
 Disk Type
 Azureマネージドディスクのタイプ。デフォルトはStandardSSD_LRSです。利用可能なディスクタイプのリスト：                                                                    
-https://docs.microsoft.com/azure/virtual-machines/linux/disks-types場所ごとの利用可能なディスクタイプのリストは以下のコマンドで取得できます：
+https://docs.microsoft.com/azure/virtual-machines/linux/disks-typesList of available disk types per location can be retrieved using the command:
 az vm list-skus --location <your-region> --output table
 >
 
@@ -490,7 +489,7 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage
 
 Region
 Azureリソースがホストされる地理的エリア。デフォルトはcentralusです。
-利用可能なリージョンのリストは以下のコマンドで取得できます：
+利用可能なリージョンのリストは次のコマンドで取得できます：
 "az account list-locations -o table"
 >
 
@@ -615,9 +614,9 @@ Target Config <target_config> created successfully
 
 ## Hetzner
 
-DaytonaはWorkspaceのデプロイと管理に使用するHetzner Target Configurationを作成するオプションを提供します。
+DaytonaはHetzner Target Configurationを作成してWorkspaceのデプロイと管理に使用するオプションを提供します。
 
-1. 次のコマンドを実行してTarget Configurationを設定します：
+1. 以下のコマンドを実行してTarget Configurationを設定します：
 
 ```shell
 daytona target-config create

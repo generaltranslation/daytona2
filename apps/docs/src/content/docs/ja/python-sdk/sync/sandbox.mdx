@@ -22,19 +22,19 @@ Daytona Sandboxを表します。
 - `snapshot` _str_ - Sandboxの作成に使用されたDaytonaスナップショット。
 - `user` _str_ - Sandbox内で実行されているOSユーザー。
 - `env` _Dict[str, str]_ - Sandbox内で設定された環境変数。
-- `labels` _Dict[str, str]_ - Sandboxに付加されたカスタムラベル。
+- `labels` _Dict[str, str]_ - Sandboxに付けられたカスタムラベル。
 - `public` _bool_ - Sandboxが公開アクセス可能かどうか。
 - `target` _str_ - Sandboxが実行されるランナーのターゲット場所。
 - `cpu` _int_ - Sandboxに割り当てられたCPU数。
 - `gpu` _int_ - Sandboxに割り当てられたGPU数。
-- `memory` _int_ - SandboxにGiB単位で割り当てられたメモリ量。
-- `disk` _int_ - SandboxにGiB単位で割り当てられたディスク容量。
+- `memory` _int_ - Sandboxに割り当てられたメモリ量（GiB）。
+- `disk` _int_ - Sandboxに割り当てられたディスク容量（GiB）。
 - `state` _SandboxState_ - Sandboxの現在の状態（例：「started」、「stopped」）。
 - `error_reason` _str_ - Sandboxがエラー状態の場合のエラーメッセージ。
 - `backup_state` _SandboxBackupStateEnum_ - Sandboxバックアップの現在の状態。
 - `backup_created_at` _str_ - バックアップが作成された日時。
-- `auto_stop_interval` _int_ - 自動停止間隔（分単位）。
-- `auto_archive_interval` _int_ - 自動アーカイブ間隔（分単位）。
+- `auto_stop_interval` _int_ - 自動停止間隔（分）。
+- `auto_archive_interval` _int_ - 自動アーカイブ間隔（分）。
 - `runner_domain` _str_ - Sandboxランナーのドメイン名。
 - `volumes` _List[str]_ - Sandboxに接続されたボリューム。
 - `build_info` _str_ - 動的ビルドから作成された場合のSandboxのビルド情報。
@@ -134,7 +134,7 @@ def set_labels(labels: Dict[str, str]) -> Dict[str, str]
 
 Sandboxのラベルを設定します。
 
-ラベルはSandboxを整理し、識別するために使用できるキーと値のペアです。
+ラベルはキーと値のペアで、Sandboxの整理と識別に使用できます。
 
 **引数**:
 
@@ -242,7 +242,8 @@ Sandboxを削除します。
 def wait_for_sandbox_start(timeout: Optional[float] = 60) -> None
 ```
 
-Sandboxが「開始済み」状態に達するまで待機します。Sandboxが「開始済み」状態に達するか、エラーが発生するか、タイムアウトするまでSandboxのステータスをポーリングします。
+Sandboxが'started'状態に達するまで待機します。Sandboxのステータスを'started'状態に達するまで、
+エラーが発生するまで、またはタイムアウトするまでポーリングします。
 
 **引数**:
 
@@ -264,7 +265,8 @@ Sandboxが「開始済み」状態に達するまで待機します。Sandboxが
 def wait_for_sandbox_stop(timeout: Optional[float] = 60) -> None
 ```
 
-Sandboxが「停止済み」状態に達するまで待機します。Sandboxが「停止済み」状態に達するか、エラーが発生するか、タイムアウトするまでSandboxのステータスをポーリングします。Sandboxが停止するまで最大60秒間待機します。
+Sandboxが'stopped'状態に達するまで待機します。Sandboxのステータスを'stopped'状態に達するまで、
+エラーが発生するまで、またはタイムアウトするまでポーリングします。Sandboxが停止するまで最大60秒間待機します。
 
 **引数**:
 

@@ -11,7 +11,7 @@ class ComputerUse()
 
 デスクトップ環境と対話するためのComputer Use機能。
 
-サンドボックス内でデスクトップ操作を自動化するためのマウス、キーボード、スクリーンショット、ディスプレイ操作へのアクセスを提供します。
+サンドボックス内でデスクトップの操作を自動化するために、マウス、キーボード、スクリーンショット、およびディスプレイ操作へのアクセスを提供します。
 
 **属性**:
 
@@ -205,12 +205,12 @@ def get_position() -> MousePosition
 
 現在のマウスカーソル位置を取得します。
 
-**Returns**:
+**戻り値**:
 
 - `MousePosition` - xとy座標を持つ現在のマウス位置。
   
 
-**Example**:
+**例**:
 
 ```python
 position = sandbox.computer_use.mouse.get_position()
@@ -226,18 +226,18 @@ def move(x: int, y: int) -> MouseMoveResponse
 
 マウスカーソルを指定された座標に移動します。
 
-**Arguments**:
+**引数**:
 
 - `x` _int_ - 移動先のx座標。
 - `y` _int_ - 移動先のy座標。
   
 
-**Returns**:
+**戻り値**:
 
 - `MouseMoveResponse` - 移動操作の結果。
   
 
-**Example**:
+**例**:
 
 ```python
 result = sandbox.computer_use.mouse.move(100, 200)
@@ -256,7 +256,7 @@ def click(x: int,
 
 指定された座標でマウスをクリックします。
 
-**Arguments**:
+**引数**:
 
 - `x` _int_ - クリックするx座標。
 - `y` _int_ - クリックするy座標。
@@ -264,21 +264,21 @@ def click(x: int,
 - `double` _bool_ - ダブルクリックを実行するかどうか。
   
 
-**Returns**:
+**戻り値**:
 
 - `MouseClickResponse` - クリック操作の結果。
   
 
-**Example**:
+**例**:
 
 ```python
-# Single left click
+# シングル左クリック
 result = sandbox.computer_use.mouse.click(100, 200)
 
-# Double click
+# ダブルクリック
 double_click = sandbox.computer_use.mouse.click(100, 200, "left", True)
 
-# Right click
+# 右クリック
 right_click = sandbox.computer_use.mouse.click(100, 200, "right")
 ```
 
@@ -295,7 +295,7 @@ def drag(start_x: int,
 
 開始座標から終了座標までマウスをドラッグします。
 
-**Arguments**:
+**引数**:
 
 - `start_x` _int_ - 開始x座標。
 - `start_y` _int_ - 開始y座標。
@@ -304,12 +304,12 @@ def drag(start_x: int,
 - `button` _str_ - ドラッグに使用するマウスボタン。
   
 
-**Returns**:
+**戻り値**:
 
 - `MouseDragResponse` - ドラッグ操作の結果。
   
 
-**Example**:
+**例**:
 
 ```python
 result = sandbox.computer_use.mouse.drag(50, 50, 150, 150)
@@ -325,7 +325,7 @@ def scroll(x: int, y: int, direction: str, amount: int = 1) -> bool
 
 指定された座標でマウスホイールをスクロールします。
 
-**Arguments**:
+**引数**:
 
 - `x` _int_ - スクロールするx座標。
 - `y` _int_ - スクロールするy座標。
@@ -333,18 +333,18 @@ def scroll(x: int, y: int, direction: str, amount: int = 1) -> bool
 - `amount` _int_ - スクロール量。
   
 
-**Returns**:
+**戻り値**:
 
 - `bool` - スクロール操作が成功したかどうか。
   
 
-**Example**:
+**例**:
 
 ```python
-# Scroll up
+# 上にスクロール
 scroll_up = sandbox.computer_use.mouse.scroll(100, 200, "up", 3)
 
-# Scroll down
+# 下にスクロール
 scroll_down = sandbox.computer_use.mouse.scroll(100, 200, "down", 5)
 ```
 
@@ -497,17 +497,17 @@ def take_full_screen(show_cursor: bool = False) -> ScreenshotResponse
 
 画面全体のスクリーンショットを撮影します。
 
-**引数**:
+**Arguments**:
 
 - `show_cursor` _bool_ - スクリーンショットにカーソルを表示するかどうか。
   
 
-**戻り値**:
+**Returns**:
 
 - `ScreenshotResponse` - base64エンコードされた画像を含むスクリーンショットデータ。
   
 
-**例**:
+**Example**:
 
 ```python
 screenshot = sandbox.computer_use.screenshot.take_full_screen()
@@ -527,18 +527,18 @@ def take_region(region: ScreenshotRegion,
 
 特定の領域のスクリーンショットを撮影します。
 
-**引数**:
+**Arguments**:
 
 - `region` _ScreenshotRegion_ - キャプチャする領域。
 - `show_cursor` _bool_ - スクリーンショットにカーソルを表示するかどうか。
   
 
-**戻り値**:
+**Returns**:
 
 - `RegionScreenshotResponse` - base64エンコードされた画像を含むスクリーンショットデータ。
   
 
-**例**:
+**Example**:
 
 ```python
 region = ScreenshotRegion(x=100, y=100, width=300, height=200)
@@ -557,17 +557,17 @@ def take_compressed(
 
 画面全体の圧縮されたスクリーンショットを撮影します。
 
-**引数**:
+**Arguments**:
 
 - `options` _ScreenshotOptions_ - 圧縮と表示のオプション。
   
 
-**戻り値**:
+**Returns**:
 
 - `CompressedScreenshotResponse` - 圧縮されたスクリーンショットデータ。
   
 
-**例**:
+**Example**:
 
 ```python
 # Default compression
@@ -597,18 +597,18 @@ def take_compressed_region(
 
 特定の領域の圧縮されたスクリーンショットを撮影します。
 
-**引数**:
+**Arguments**:
 
 - `region` _ScreenshotRegion_ - キャプチャする領域。
 - `options` _ScreenshotOptions_ - 圧縮と表示のオプション。
   
 
-**戻り値**:
+**Returns**:
 
 - `CompressedScreenshotResponse` - 圧縮されたスクリーンショットデータ。
   
 
-**例**:
+**Example**:
 
 ```python
 region = ScreenshotRegion(x=0, y=0, width=800, height=600)
@@ -697,9 +697,9 @@ class ScreenshotOptions()
 
 スクリーンショットの圧縮と表示のオプション。
 
-**属性**:
+**Attributes**:
 
-- `show_cursor` _bool_ - スクリーンショットにカーソルを表示するかどうか。
+- `show_cursor` _bool_ - スクリーンショットでカーソルを表示するかどうか。
 - `fmt` _str_ - 画像形式（例：'png'、'jpeg'、'webp'）。
 - `quality` _int_ - 圧縮品質（0-100）。
 - `scale` _float_ - スクリーンショットのスケール係数。

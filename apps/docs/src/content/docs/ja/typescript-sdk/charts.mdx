@@ -8,7 +8,7 @@ hideTitleOnPage: true
 
 チャートタイプ
 
-**列挙型メンバー**:
+**Enum Members**:
 
 - `BAR` ("bar")
 - `LINE` ("line")
@@ -103,15 +103,15 @@ type BoxAndWhiskerData = {
 };
 ```
 
-ボックスアンドウィスカーチャートにおけるボックスアンドウィスカーを表します。
+箱ひげ図における箱ひげを表します。
 
 **型宣言**:
 
-- `first\_quartile` _number_ - ボックスアンドウィスカーの第1四分位数
-- `label` _string_ - ボックスアンドウィスカーのラベル
-- `max` _number_ - ボックスアンドウィスカーの第3四分位数
-- `median` _number_ - ボックスアンドウィスカーの中央値
-- `min` _number_ - ボックスアンドウィスカーの最小値
+- `first\_quartile` _number_ - 箱ひげの第1四分位数
+- `label` _string_ - 箱ひげのラベル
+- `max` _number_ - 箱ひげの第3四分位数
+- `median` _number_ - 箱ひげの中央値
+- `min` _number_ - 箱ひげの最小値
 - `outliers` _number\[\]_
 
 
@@ -126,7 +126,7 @@ type Chart = {
 };
 ```
 
-matplotlibからのメタデータを持つチャートを表します。
+matplotlibからのメタデータを含むチャートを表します。
 
 **型宣言**:
 
@@ -202,7 +202,7 @@ type PieChart = Chart & {
 
 **型宣言**:
 
-- `elements` _PieData\[\]_ - チャートの円グラフスライス
+- `elements` _PieData\[\]_ - チャートの円スライス
 - `type` _PIE_ - チャートの種類
     
 

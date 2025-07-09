@@ -6,7 +6,7 @@ description: Daytona APIを使用してサポートされている操作のリ�
 import Label from '@components/Label.astro'
 
 <Label>
-  Distribution: **オープンソース**
+  Distribution: **Open Source**
 </Label>
 
 ## GET /apikey
@@ -21,13 +21,13 @@ APIキーを一覧表示
 
 ## POST /apikey/\{apiKeyName\}
 
-APIキーを作成する
+API キーを作成する
 
 ### パラメータ
 
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`apiKeyName`** | path | true | string | APIキー名 |
+| **`apiKeyName`** | path | true | string | API キー名 |
 
 ### レスポンス
 
@@ -39,15 +39,15 @@ APIキーを作成する
 
 APIキーを削除
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`apiKeyName`** | path | true | string | APIキー名 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -63,7 +63,7 @@ APIキーを削除
 
 ## POST /build
 
-ビルドを作成
+ビルドを作成する
 
 ### パラメータ
 
@@ -91,7 +91,7 @@ APIキーを削除
 
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`204`** | コンテンツなし |
+| **`204`** | No Content |
 
 ## DELETE /build/prebuild/\{prebuildId\}
 
@@ -102,7 +102,7 @@ APIキーを削除
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`prebuildId`** | path | true | string | Prebuild ID |
-| **`force`** | query | undefined | boolean | 強制 |
+| **`force`** | query | undefined | boolean | 強制実行 |
 
 ### Responses
 
@@ -130,15 +130,15 @@ Gitリポジトリの成功したビルドを一覧表示
 
 ビルドを検索
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`buildId`** | path | true | string | ビルドID |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -157,20 +157,20 @@ Gitリポジトリの成功したビルドを一覧表示
 
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`204`** | コンテンツなし |
+| **`204`** | No Content |
 
 ## GET /container-registry/\{server\}
 
 コンテナレジストリを検索
 
-### パラメータ
+### Parameters
 
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`server`** | path | true | string | コンテナレジストリサーバー |
 | **`workspaceId`** | query | undefined | string | ワークスペースIDまたは名前 |
 
-### レスポンス
+### Responses
 
 | Status Code | Description |
 | :-------- | :---------- |
@@ -206,17 +206,17 @@ Gitリポジトリの成功したビルドを一覧表示
 
 環境変数を削除
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`key`** | path | true | string | 環境変数キー |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
-| **`204`** | コンテンツなし |
+| **`204`** | No Content |
 
 ## GET /gitprovider
 
@@ -230,13 +230,13 @@ Gitプロバイダーを一覧表示
 
 ## PUT /gitprovider
 
-Gitプロバイダーを保存
+Git プロバイダーを保存
 
 ### パラメータ
 
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`gitProviderConfig`** | body | true | undefined | Gitプロバイダー |
+| **`gitProviderConfig`** | body | true | undefined | Git プロバイダー |
 
 ### レスポンス
 
@@ -280,15 +280,15 @@ GitリポジトリからURLを取得
 
 URLのGitプロバイダーを一覧表示
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`url`** | path | true | string | URL |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -296,31 +296,31 @@ URLのGitプロバイダーを一覧表示
 
 Git プロバイダー ID を検索
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`url`** | path | true | string | URL |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
 ## GET /gitprovider/\{gitProviderId\}
 
-Git プロバイダーを検索
+Git providerを検索
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`gitProviderId`** | path | true | string | ID |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -385,7 +385,7 @@ Gitリポジトリを取得
 | **`gitProviderId`** | path | true | string | Gitプロバイダー |
 | **`namespaceId`** | path | true | string | 名前空間 |
 | **`page`** | query | undefined | integer | ページ番号 |
-| **`per_page`** | query | undefined | integer | ページあたりのアイテム数 |
+| **`per_page`** | query | undefined | integer | 1ページあたりのアイテム数 |
 
 ### レスポンス
 
@@ -402,10 +402,10 @@ Gitリポジトリのブランチを取得
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`gitProviderId`** | path | true | string | Gitプロバイダー |
-| **`namespaceId`** | path | true | string | ネームスペース |
+| **`namespaceId`** | path | true | string | 名前空間 |
 | **`repositoryId`** | path | true | string | リポジトリ |
 | **`page`** | query | undefined | integer | ページ番号 |
-| **`per_page`** | query | undefined | integer | 1ページあたりのアイテム数 |
+| **`per_page`** | query | undefined | integer | ページあたりのアイテム数 |
 
 ### レスポンス
 
@@ -415,11 +415,11 @@ Gitリポジトリのブランチを取得
 
 ## GET /gitprovider/\{gitProviderId\}/\{namespaceId\}/\{repositoryId\}/pull-requests
 
-GitリポジトリのPRを取得
+Gitリポジトリのプルリクエストを取得
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`gitProviderId`** | path | true | string | Gitプロバイダー |
 | **`namespaceId`** | path | true | string | 名前空間 |
@@ -427,9 +427,9 @@ GitリポジトリのPRを取得
 | **`page`** | query | undefined | integer | ページ番号 |
 | **`per_page`** | query | undefined | integer | 1ページあたりのアイテム数 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -474,17 +474,17 @@ GitリポジトリのPRを取得
 
 ## POST /runner
 
-ランナーを作成する
+runnerを作成する
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`runner`** | body | true | undefined | ランナー |
+| **`runner`** | body | true | undefined | Runner |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -492,15 +492,15 @@ GitリポジトリのPRを取得
 
 プロバイダーを一覧表示
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`runnerId`** | query | undefined | string | Runner ID |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -516,7 +516,7 @@ GitリポジトリのPRを取得
 
 ## GET /runner/\{runnerId\}
 
-ランナーを検索
+ランナーを検索する
 
 ### パラメータ
 
@@ -550,15 +550,15 @@ GitリポジトリのPRを取得
 
 ランナージョブを一覧表示
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`runnerId`** | path | true | string | ランナーID |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -584,16 +584,16 @@ GitリポジトリのPRを取得
 
 ランナーメタデータを更新
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`runnerId`** | path | true | string | ランナーID |
 | **`runnerMetadata`** | body | true | undefined | ランナーメタデータ |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -601,15 +601,15 @@ GitリポジトリのPRを取得
 
 ランナープロバイダーを取得
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`runnerId`** | path | true | string | ランナーID |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -621,7 +621,7 @@ GitリポジトリのPRを取得
 
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`runnerId`** | path | true | string | ランナーID |
+| **`runnerId`** | path | true | string | Runner ID |
 | **`providerName`** | path | true | string | プロバイダー名 |
 | **`providerVersion`** | query | undefined | string | プロバイダーバージョン - デフォルトは 'latest' |
 
@@ -639,7 +639,7 @@ GitリポジトリのPRを取得
 
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`runnerId`** | path | true | string | ランナーID |
+| **`runnerId`** | path | true | string | Runner ID |
 | **`providerName`** | path | true | string | プロバイダー名 |
 
 ### Responses
@@ -656,7 +656,7 @@ GitリポジトリのPRを取得
 
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`runnerId`** | path | true | string | ランナーID |
+| **`runnerId`** | path | true | string | Runner ID |
 | **`providerName`** | path | true | string | プロバイダー名 |
 | **`providerVersion`** | query | undefined | string | プロバイダーバージョン - デフォルトは 'latest' |
 
@@ -690,15 +690,15 @@ GitリポジトリのPRを取得
 
 サーバー設定を保存する
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`config`** | body | true | undefined | サーバー設定 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -740,17 +740,17 @@ GitリポジトリのPRを取得
 
 ## POST /target
 
-ターゲットを作成
+ターゲットを作成する
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`target`** | body | true | undefined | ターゲットを作成 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -758,15 +758,15 @@ GitリポジトリのPRを取得
 
 ターゲット設定を一覧表示
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`showOptions`** | query | undefined | boolean | ターゲット設定オプションを表示 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -791,17 +791,17 @@ GitリポジトリのPRを取得
 
 ターゲット設定を削除する
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`configId`** | path | true | string | ターゲット設定ID |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
-| **`204`** | コンテンツなし |
+| **`204`** | No Content |
 
 ## GET /target/\{targetId\}
 
@@ -841,15 +841,15 @@ GitリポジトリのPRを取得
 
 ターゲットの作成成功を処理します
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`targetId`** | path | true | string | ターゲットIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -891,15 +891,15 @@ GitリポジトリのPRを取得
 
 ターゲットを再起動
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`targetId`** | path | true | string | ターゲットIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -923,15 +923,15 @@ GitリポジトリのPRを取得
 
 ターゲットを開始
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`targetId`** | path | true | string | ターゲットIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -939,15 +939,15 @@ GitリポジトリのPRを取得
 
 ターゲットの状態を取得
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`targetId`** | path | true | string | ターゲットIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -955,15 +955,15 @@ GitリポジトリのPRを取得
 
 ターゲットを停止
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`targetId`** | path | true | string | ターゲットIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -973,13 +973,13 @@ GitリポジトリのPRを取得
 
 ### パラメータ
 
-| Name | Location | Required | Type | Description |
+| 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`labels`** | query | undefined | string | JSON エンコードされたラベル |
+| **`labels`** | query | undefined | string | JSONエンコードされたラベル |
 
 ### レスポンス
 
-| Status Code | Description |
+| ステータスコード | 説明 |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1071,15 +1071,15 @@ ProcessGitEvent
 
 ワークスペーステンプレートを検索
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`templateName`** | path | true | string | テンプレート名 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1087,22 +1087,22 @@ ProcessGitEvent
 
 ワークスペーステンプレートデータを削除
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`templateName`** | path | true | string | テンプレート名 |
 | **`force`** | query | undefined | boolean | 強制実行 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`204`** | No Content |
 
 ## GET /workspace-template/\{templateName\}/prebuild
 
-ワークスペーステンプレートのプリビルドを一覧表示
+ワークスペーステンプレートのプレビルドを一覧表示
 
 ### Parameters
 
@@ -1137,16 +1137,16 @@ ProcessGitEvent
 
 プリビルドを検索
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`templateName`** | path | true | string | ワークスペーステンプレート名 |
 | **`prebuildId`** | path | true | string | プリビルドID |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1154,19 +1154,19 @@ ProcessGitEvent
 
 プリビルドを削除
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`templateName`** | path | true | string | ワークスペーステンプレート名 |
 | **`prebuildId`** | path | true | string | プリビルドID |
 | **`force`** | query | undefined | boolean | 強制実行 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
-| **`204`** | コンテンツなし |
+| **`204`** | No Content |
 
 ## PATCH /workspace-template/\{templateName\}/set-default
 
@@ -1188,13 +1188,13 @@ ProcessGitEvent
 
 ワークスペースを検索
 
-### パラメータ
+### Parameters
 
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
 
-### レスポンス
+### Responses
 
 | Status Code | Description |
 | :-------- | :---------- |
@@ -1221,29 +1221,12 @@ ProcessGitEvent
 
 ワークスペースラベルを更新
 
-### パラメータ
-
-| 名前 | 場所 | 必須 | 型 | 説明 |
-| :--- | :------- | :------- | :--- | :---------- |
-| **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
-| **`labels`** | body | true | undefined | ラベル |
-
-### レスポンス
-
-| ステータスコード | 説明 |
-| :-------- | :---------- |
-| **`200`** | OK |
-
-## POST /workspace/\{workspaceId\}/metadata
-
-ワークスペースメタデータを更新
-
 ### Parameters
 
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`workspaceId`** | path | true | string | ワークスペースID |
-| **`workspaceMetadata`** | body | true | undefined | ワークスペースメタデータ |
+| **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
+| **`labels`** | body | true | undefined | ラベル |
 
 ### Responses
 
@@ -1251,20 +1234,37 @@ ProcessGitEvent
 | :-------- | :---------- |
 | **`200`** | OK |
 
-## POST /workspace/\{workspaceId\}/provider-metadata
+## POST /workspace/\{workspaceId\}/metadata
 
-ワークスペースプロバイダーメタデータを更新
+ワークスペースメタデータを更新
 
 ### パラメータ
 
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`workspaceId`** | path | true | string | ワークスペースID |
-| **`metadata`** | body | true | undefined | プロバイダーメタデータ |
+| **`workspaceMetadata`** | body | true | undefined | ワークスペースメタデータ |
 
 ### レスポンス
 
 | ステータスコード | 説明 |
+| :-------- | :---------- |
+| **`200`** | OK |
+
+## POST /workspace/\{workspaceId\}/provider-metadata
+
+ワークスペースプロバイダーメタデータを更新
+
+### Parameters
+
+| Name | Location | Required | Type | Description |
+| :--- | :------- | :------- | :--- | :---------- |
+| **`workspaceId`** | path | true | string | ワークスペースID |
+| **`metadata`** | body | true | undefined | プロバイダーメタデータ |
+
+### Responses
+
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1272,15 +1272,15 @@ ProcessGitEvent
 
 ワークスペースを再起動
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1288,15 +1288,15 @@ ProcessGitEvent
 
 ワークスペースを開始
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1304,15 +1304,15 @@ ProcessGitEvent
 
 ワークスペースの状態を取得
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1320,15 +1320,15 @@ ProcessGitEvent
 
 ワークスペースを停止
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1336,16 +1336,16 @@ ProcessGitEvent
 
 ワークスペース内のファイルを一覧表示
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
 | **`path`** | query | undefined | string | パス |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1368,7 +1368,7 @@ ProcessGitEvent
 
 ## GET /workspace/\{workspaceId\}/toolbox/files/download
 
-ワークスペースからファイルをダウンロード
+ワークスペースからファイルをダウンロードする
 
 ### Parameters
 
@@ -1456,7 +1456,7 @@ ProcessGitEvent
 
 ## POST /workspace/\{workspaceId\}/toolbox/files/permissions
 
-ワークスペース内のファイル所有者/グループ/権限を設定
+ワークスペース内のファイルの所有者/グループ/権限を設定する
 
 ### Parameters
 
@@ -1476,7 +1476,7 @@ ProcessGitEvent
 
 ## POST /workspace/\{workspaceId\}/toolbox/files/replace
 
-ワークスペース内の複数ファイルでテキスト/パターンを置換する
+ワークスペース内の複数のファイルでテキスト/パターンを置換する
 
 ### Parameters
 
@@ -1493,7 +1493,7 @@ ProcessGitEvent
 
 ## GET /workspace/\{workspaceId\}/toolbox/files/search
 
-ワークスペース内のファイルを検索
+ワークスペース内のファイルを検索する
 
 ### Parameters
 
@@ -1546,7 +1546,7 @@ gitコミットにファイルを追加
 
 ## GET /workspace/\{workspaceId\}/toolbox/git/branches
 
-ワークスペース内のgitリポジトリからブランチリストを取得
+ワークスペース内のgitリポジトリからブランチリストを取得する
 
 ### Parameters
 
@@ -1665,7 +1665,7 @@ gitコミットにファイルを追加
 
 ## GET /workspace/\{workspaceId\}/toolbox/git/status
 
-ワークスペース内のgitリポジトリからステータスを取得
+ワークスペース内のgitリポジトリからステータスを取得します
 
 ### Parameters
 
@@ -1688,7 +1688,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
+| **`workspaceId`** | path | true | string | Workspace IDまたは名前 |
 | **`params`** | body | true | undefined | LspCompletionParams |
 
 ### Responses
@@ -1868,7 +1868,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 
 | Status Code | Description |
 | :-------- | :---------- |
-| **`204`** | コンテンツなし |
+| **`204`** | No Content |
 
 ## GET /workspace/\{workspaceId\}/toolbox/process/session/\{sessionId\}/command/\{commandId\}/logs
 
@@ -1911,14 +1911,14 @@ websocketに接続してログのストリームを取得します
 
 ワークスペースディレクトリを取得
 
-### パラメータ
+### Parameters
 
-| 名前 | 場所 | 必須 | 型 | 説明 |
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`workspaceId`** | path | true | string | ワークスペースIDまたは名前 |
 
-### レスポンス
+### Responses
 
-| ステータスコード | 説明 |
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |

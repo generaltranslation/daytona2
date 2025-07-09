@@ -22,7 +22,7 @@ hideTitleOnPage: true
 サンドボックス内でデスクトップ操作を自動化するためのマウス、キーボード、スクリーンショット、
 およびディスプレイ操作へのアクセスを提供します。
 
-### コンストラクタ
+### Constructors
 
 #### new ComputerUse()
 
@@ -40,7 +40,7 @@ new ComputerUse(sandboxId: string, toolboxApi: ToolboxApi): ComputerUse
 
 - `ComputerUse`
 
-### メソッド
+### Methods
 
 #### getProcessErrors()
 
@@ -210,7 +210,7 @@ console.log('Computer use processes stopped:', result.message);
 
 computer use機能のディスプレイ操作
 
-### コンストラクタ
+### Constructors
 
 #### new Display()
 
@@ -228,7 +228,7 @@ new Display(sandboxId: string, toolboxApi: ToolboxApi): Display
 
 - `Display`
 
-### メソッド
+### Methods
 
 #### getInfo()
 
@@ -240,7 +240,7 @@ getInfo(): Promise<DisplayInfoResponse>
 
 **戻り値**:
 
-- `Promise<DisplayInfoResponse>` - プライマリディスプレイとすべての利用可能なディスプレイを含むディスプレイ情報
+- `Promise<DisplayInfoResponse>` - プライマリディスプレイと利用可能なすべてのディスプレイを含むディスプレイ情報
 
 **例:**
 
@@ -375,7 +375,7 @@ press(key: string, modifiers?: string[]): Promise<void>
 
 **Throws**:
 
-押下操作が失敗した場合
+プレス操作が失敗した場合
 
 **Example:**
 
@@ -427,7 +427,7 @@ type(text: string, delay?: number): Promise<void>
 
 **Throws**:
 
-入力操作が失敗した場合
+タイプ操作が失敗した場合
 
 **Example:**
 
@@ -668,7 +668,7 @@ takeCompressed(options?: ScreenshotOptions): Promise<CompressedScreenshotRespons
 
 **Parameters**:
 
-- `options?` _ScreenshotOptions = {}_ - 圧縮と表示のオプション
+- `options?` _ScreenshotOptions = {}_ - 圧縮と表示オプション
 
 
 **Returns**:
@@ -708,7 +708,7 @@ takeCompressedRegion(region: ScreenshotRegion, options?: ScreenshotOptions): Pro
 **Parameters**:
 
 - `region` _ScreenshotRegion_ - キャプチャする領域
-- `options?` _ScreenshotOptions = {}_ - 圧縮と表示のオプション
+- `options?` _ScreenshotOptions = {}_ - 圧縮と表示オプション
 
 
 **Returns**:

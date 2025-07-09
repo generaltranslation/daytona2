@@ -55,7 +55,7 @@ Sandbox内でシェルコマンドを実行します。
   - exit_code: コマンドの終了ステータス
   - result: コマンドからの標準出力
   - artifacts: `stdout`（resultと同じ）と
-  `charts`（matplotlibチャートメタデータ）を含むExecutionArtifactsオブジェクト
+  `charts`（matplotlibチャートのメタデータ）を含むExecutionArtifactsオブジェクト
   
 
 **例**:
@@ -68,7 +68,7 @@ print(response.artifacts.stdout)  # 出力: Hello
 # 作業ディレクトリを指定したコマンド
 result = sandbox.process.exec("ls", cwd="workspace/src")
 
-# タイムアウト付きコマンド
+# タイムアウト付きのコマンド
 result = sandbox.process.exec("sleep 10", timeout=5)
 ```
 
@@ -96,7 +96,7 @@ def code_run(code: str,
   - exit_code: 実行の終了ステータス
   - result: コードからの標準出力
   - artifacts: `stdout`（resultと同じ）と
-  `charts`（matplotlibチャートメタデータ）を含むExecutionArtifactsオブジェクト
+  `charts`（matplotlibチャートのメタデータ）を含むExecutionArtifactsオブジェクト
   
 
 **例**:
@@ -261,7 +261,7 @@ def execute_session_command(
 - `SessionExecuteResponse` - 以下を含むコマンド実行結果:
   - cmd_id: 実行されたコマンドの一意識別子
   - output: コマンド出力（同期実行の場合）
-  - exit_code: コマンド終了ステータス（同期実行の場合）
+  - exit_code: コマンドの終了ステータス（同期実行の場合）
   
 
 **例**:

@@ -15,7 +15,7 @@ import Label from '@components/Label.astro'
 
 ## daytona version
 
-バージョン番号を表示します
+バージョン番号を出力します
 
 ```shell
 daytona version [flags]
@@ -37,7 +37,7 @@ daytona sandbox info [SANDBOX_ID] [flags]
 **フラグ**
 | Long | Short | Description |
 | :--- | :---- | :---------- |
-| `--format` | `-f` | 出力形式。次のいずれかである必要があります (yaml, json) |
+| `--format` | `-f` | 出力形式。(yaml, json) のいずれかである必要があります |
 | `--verbose` | `-v` | 詳細出力を含める |
 | `--help` | | daytona のヘルプ |
 
@@ -52,7 +52,7 @@ daytona sandbox list [flags]
 **フラグ**
 | Long | Short | Description |
 | :--- | :---- | :---------- |
-| `--format` | `-f` | 出力形式。次のいずれかである必要があります (yaml, json) |
+| `--format` | `-f` | 出力形式。(yaml, json) のいずれかである必要があります |
 | `--limit` | `-l` | ページあたりの最大アイテム数 |
 | `--page` | `-p` | ページネーションのページ番号（1から開始） |
 | `--verbose` | `-v` | 詳細出力を含める |
@@ -340,7 +340,7 @@ daytona organization list [flags]
 **フラグ**
 | Long | Short | Description |
 | :--- | :---- | :---------- |
-| `--format` | `-f` | 出力形式。次のいずれかである必要があります (yaml, json) |
+| `--format` | `-f` | 出力形式。(yaml, json) のいずれかである必要があります |
 | `--help` | | daytona のヘルプ |
 
 ## daytona organization use
@@ -371,7 +371,7 @@ daytona mcp [flags]
 
 ## daytona mcp init
 
-エージェント（現在サポート：claude、windsurf、cursor）でDaytona MCP Serverを初期化します
+エージェントを使用してDaytona MCP Serverを初期化します（現在サポートされているエージェント：claude、windsurf、cursor）
 
 ```shell
 daytona mcp init [AGENT_NAME] [flags]
@@ -384,7 +384,7 @@ daytona mcp init [AGENT_NAME] [flags]
 
 ## daytona mcp start
 
-Daytona MCP サーバーを開始
+Daytona MCP Serverを開始
 
 ```shell
 daytona mcp start [flags]
@@ -393,7 +393,7 @@ daytona mcp start [flags]
 **フラグ**
 | Long | Short | Description |
 | :--- | :---- | :---------- |
-| `--help` | | daytona のヘルプ |
+| `--help` | | daytonaのヘルプ |
 
 ## daytona mcp config
 
@@ -410,7 +410,7 @@ daytona mcp config [AGENT_NAME] [flags]
 
 ## daytona volume
 
-Daytonaボリュームを管理
+Daytonaボリュームを管理する
 
 ```shell
 daytona volume [flags]

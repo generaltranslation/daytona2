@@ -10,7 +10,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定する |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 
 ### レスポンス
 | ステータスコード | 説明 |
@@ -36,7 +36,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定する |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 
 ### レスポンス
 | ステータスコード | 説明 |
@@ -62,7 +62,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`name`** | path | true | undefined | undefined |
 
 ### レスポンス
@@ -90,14 +90,14 @@ import Label from '@components/Label.astro'
 ## POST /organizations/invitations/\{invitationId\}/accept
 
 ### パラメータ
-| Name | Location | Required | Type | Description |
+| 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`invitationId`** | path | true | undefined | 招待ID |
 
 ### レスポンス
-| Status Code | Description |
+| ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | 組織への招待が正常に承認されました |
+| **`200`** | 組織への招待が正常に受諾されました |
 
 
 ## POST /organizations/invitations/\{invitationId\}/decline
@@ -246,13 +246,13 @@ import Label from '@components/Label.astro'
 ## PUT /organizations/\{organizationId\}/roles/\{roleId\}
 
 ### パラメータ
-| Name | Location | Required | Type | Description |
+| 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`organizationId`** | path | true | undefined | 組織ID |
 | **`roleId`** | path | true | undefined | ロールID |
 
 ### レスポンス
-| Status Code | Description |
+| ステータスコード | 説明 |
 | :-------- | :---------- |
 | **`200`** | ロールが正常に更新されました |
 
@@ -286,13 +286,13 @@ import Label from '@components/Label.astro'
 ## POST /organizations/\{organizationId\}/users/\{userId\}/role
 
 ### パラメータ
-| Name | Location | Required | Type | Description |
+| 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`organizationId`** | path | true | undefined | 組織ID |
 | **`userId`** | path | true | undefined | ユーザーID |
 
 ### レスポンス
-| Status Code | Description |
+| ステータスコード | 説明 |
 | :-------- | :---------- |
 | **`200`** | ロールが正常に更新されました |
 
@@ -314,15 +314,15 @@ import Label from '@components/Label.astro'
 ## DELETE /organizations/\{organizationId\}/users/\{userId\}
 
 ### パラメータ
-| Name | Location | Required | Type | Description |
+| 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`organizationId`** | path | true | undefined | 組織ID |
 | **`userId`** | path | true | undefined | ユーザーID |
 
 ### レスポンス
-| Status Code | Description |
+| ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`204`** | 組織からユーザーが正常に削除されました |
+| **`204`** | ユーザーが組織から正常に削除されました |
 
 
 ## POST /organizations/\{organizationId\}/invitations
@@ -462,14 +462,14 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`verbose`** | query | false | undefined | 詳細出力を含める |
 | **`labels`** | query | false | undefined | フィルタリングするためのJSONエンコードされたラベル |
 
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | 全てのサンドボックスのリスト |
+| **`200`** | すべてのサンドボックスのリスト |
 
 ## POST /sandbox
 
@@ -518,7 +518,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | サンドボックスのID |
 
 ### レスポンス
@@ -532,7 +532,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | サンドボックスのID |
 
 ### レスポンス
@@ -546,13 +546,13 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`sandboxId`** | path | true | undefined | サンドボックスのID |
 
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | ラベルが正常に置き換えられました |
+| **`200`** | ラベルが正常に置換されました |
 
 
 ## POST /sandbox/\{sandboxId\}/backup
@@ -560,7 +560,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | サンドボックスのID |
 
 ### レスポンス
@@ -576,7 +576,7 @@ import Label from '@components/Label.astro'
 | :--- | :------- | :------- | :--- | :---------- |
 | **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | サンドボックスのID |
-| **`isPublic`** | path | true | undefined | 設定する公開ステータス |
+| **`isPublic`** | path | true | undefined | 設定するパブリックステータス |
 
 ### レスポンス
 | ステータスコード | 説明 |
@@ -604,7 +604,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | サンドボックスのID |
 | **`interval`** | path | true | undefined | 自動アーカイブ間隔（分単位）（0は最大間隔が使用されることを意味します） |
 
@@ -619,7 +619,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### レスポンス
@@ -696,7 +696,7 @@ import Label from '@components/Label.astro'
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | ランナーが見つかりました |
+| **`200`** | Runnerが見つかりました |
 
 
 ## GET /runners/by-snapshot
@@ -731,7 +731,7 @@ import Label from '@components/Label.astro'
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`path`** | query | false | undefined | undefined |
 
@@ -743,15 +743,15 @@ import Label from '@components/Label.astro'
 ## DELETE /toolbox/\{sandboxId\}/toolbox/files
 サンドボックス内のファイルを削除
 
-### パラメータ
-| 名前 | 場所 | 必須 | 型 | 説明 |
+### Parameters
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`path`** | query | true | undefined | undefined |
 
-### レスポンス
-| ステータスコード | 説明 |
+### Responses
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | ファイルが正常に削除されました |
 
@@ -769,7 +769,7 @@ import Label from '@components/Label.astro'
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | ファイルのダウンロードが正常に完了しました |
+| **`200`** | ファイルのダウンロードが正常に完了 |
 
 
 ## GET /toolbox/\{sandboxId\}/toolbox/files/find
@@ -778,7 +778,7 @@ import Label from '@components/Label.astro'
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`path`** | query | true | undefined | undefined |
 | **`pattern`** | query | true | undefined | undefined |
@@ -795,7 +795,7 @@ import Label from '@components/Label.astro'
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`path`** | query | true | undefined | undefined |
 | **`mode`** | query | true | undefined | undefined |
@@ -809,17 +809,17 @@ import Label from '@components/Label.astro'
 ## GET /toolbox/\{sandboxId\}/toolbox/files/info
 サンドボックス内のファイル情報を取得
 
-### パラメータ
-| 名前 | 場所 | 必須 | 型 | 説明 |
+### Parameters
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`path`** | query | true | undefined | undefined |
 
-### レスポンス
-| ステータスコード | 説明 |
+### Responses
+| Status Code | Description |
 | :-------- | :---------- |
-| **`200`** | ファイル情報の取得に成功 |
+| **`200`** | ファイル情報が正常に取得されました |
 
 
 ## POST /toolbox/\{sandboxId\}/toolbox/files/move
@@ -828,7 +828,7 @@ import Label from '@components/Label.astro'
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`source`** | query | true | undefined | undefined |
 | **`destination`** | query | true | undefined | undefined |
@@ -864,7 +864,7 @@ import Label from '@components/Label.astro'
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -896,7 +896,7 @@ import Label from '@components/Label.astro'
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`path`** | query | true | undefined | undefined |
 
@@ -912,7 +912,7 @@ import Label from '@components/Label.astro'
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -927,7 +927,7 @@ gitコミットにファイルを追加
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -971,7 +971,7 @@ gitリポジトリのブランチを削除
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -986,7 +986,7 @@ gitリポジトリをクローンする
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -1001,7 +1001,7 @@ gitリポジトリに変更をコミットする
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定する |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -1047,7 +1047,7 @@ gitリポジトリからコミット履歴を取得
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -1062,7 +1062,7 @@ gitリポジトリでブランチまたはコミットをチェックアウト
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -1108,7 +1108,7 @@ gitリポジトリからステータスを取得
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -1117,12 +1117,12 @@ gitリポジトリからステータスを取得
 | **`200`** | セッションが正常に取得されました |
 
 ## POST /toolbox/\{sandboxId\}/toolbox/process/session
-サンドボックス内に新しいセッションを作成する
+サンドボックス内で新しいセッションを作成する
 
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定する |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -1137,7 +1137,7 @@ IDでセッションを取得
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`sessionId`** | path | true | undefined | undefined |
 
@@ -1152,7 +1152,7 @@ IDでセッションを取得
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`sessionId`** | path | true | undefined | undefined |
 
@@ -1185,7 +1185,7 @@ IDによるセッションコマンドの取得
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`sessionId`** | path | true | undefined | undefined |
 | **`commandId`** | path | true | undefined | undefined |
@@ -1197,12 +1197,12 @@ IDによるセッションコマンドの取得
 
 
 ## GET /toolbox/\{sandboxId\}/toolbox/process/session/\{sessionId\}/command/\{commandId\}/logs
-セッション内の特定のコマンドのログを取得
+セッション内の特定のコマンドのログを取得する
 
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定する |
 | **`sandboxId`** | path | true | undefined | undefined |
 | **`sessionId`** | path | true | undefined | undefined |
 | **`commandId`** | path | true | undefined | undefined |
@@ -1283,7 +1283,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### Parameters
 | Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`sandboxId`** | path | true | undefined | undefined |
 
 ### Responses
@@ -1295,14 +1295,14 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ## POST /toolbox/\{sandboxId\}/toolbox/lsp/stop
 サンドボックスプロジェクト内のLspサーバープロセスを停止
 
-### パラメータ
-| 名前 | 場所 | 必須 | 型 | 説明 |
+### Parameters
+| Name | Location | Required | Type | Description |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと併用して組織IDを指定 |
 | **`sandboxId`** | path | true | undefined | undefined |
 
-### レスポンス
-| ステータスコード | 説明 |
+### Responses
+| Status Code | Description |
 | :-------- | :---------- |
 | **`200`** | OK |
 
@@ -1343,7 +1343,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`limit`** | query | false | undefined | ページあたりのアイテム数 |
 | **`page`** | query | false | undefined | ページ番号 |
 
@@ -1358,7 +1358,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`id`** | path | true | undefined | スナップショットIDまたは名前 |
 
 ### レスポンス
@@ -1386,7 +1386,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`id`** | path | true | undefined | スナップショットID |
 
 ### レスポンス
@@ -1400,7 +1400,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`id`** | path | true | undefined | スナップショットID |
 
 ### レスポンス
@@ -1445,14 +1445,14 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`verbose`** | query | false | undefined | 詳細出力を含める |
-| **`labels`** | query | false | undefined | フィルタリング用のJSONエンコードされたラベル |
+| **`labels`** | query | false | undefined | フィルタリングするためのJSONエンコードされたラベル |
 
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | 全ワークスペースのリスト |
+| **`200`** | すべてのワークスペースのリスト |
 
 ## POST /workspace
 
@@ -1486,7 +1486,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`workspaceId`** | path | true | undefined | ワークスペースのID |
 | **`force`** | query | true | undefined | undefined |
 
@@ -1529,13 +1529,13 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`workspaceId`** | path | true | undefined | ワークスペースのID |
 
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | ラベルが正常に置換されました |
+| **`200`** | ラベルが正常に置き換えられました |
 
 
 ## POST /workspace/\{workspaceId\}/backup
@@ -1557,7 +1557,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`workspaceId`** | path | true | undefined | ワークスペースのID |
 | **`isPublic`** | path | true | undefined | 設定するパブリックステータス |
 
@@ -1572,7 +1572,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 | **`workspaceId`** | path | true | undefined | ワークスペースのID |
 | **`interval`** | path | true | undefined | 自動停止間隔（分単位、0で無効化） |
 
@@ -1686,20 +1686,20 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`includeDeleted`** | query | false | undefined | レスポンスに削除されたボリュームを含める |
 
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | 全ボリュームのリスト |
+| **`200`** | すべてのボリュームのリスト |
 
 ## POST /volumes
 
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
 
 ### レスポンス
 | ステータスコード | 説明 |
@@ -1739,7 +1739,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 | **`name`** | path | true | undefined | ボリュームの名前 |
 
 ### レスポンス
@@ -1770,7 +1770,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | 全てのDockerレジストリのリスト |
+| **`200`** | 全てのdockerレジストリのリスト |
 
 
 ## GET /docker-registry/registry-push-access
@@ -1791,7 +1791,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
 | **`id`** | path | true | undefined | dockerレジストリのID |
 
 ### レスポンス
@@ -1805,12 +1805,12 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
-| **`id`** | path | true | undefined | DockerレジストリのID |
+| **`id`** | path | true | undefined | dockerレジストリのID |
 
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | Dockerレジストリが正常に更新されました。 |
+| **`200`** | dockerレジストリが正常に更新されました。 |
 
 ## DELETE /docker-registry/\{id\}
 
@@ -1818,12 +1818,12 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
 | **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
-| **`id`** | path | true | undefined | DockerレジストリのID |
+| **`id`** | path | true | undefined | dockerレジストリのID |
 
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`204`** | Dockerレジストリが正常に削除されました。 |
+| **`204`** | dockerレジストリが正常に削除されました。 |
 
 
 ## POST /docker-registry/\{id\}/set-default
@@ -1831,13 +1831,13 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
-| **`id`** | path | true | undefined | DockerレジストリのID |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する |
+| **`id`** | path | true | undefined | dockerレジストリのID |
 
 ### レスポンス
 | ステータスコード | 説明 |
 | :-------- | :---------- |
-| **`200`** | Dockerレジストリがデフォルトとして設定されました。 |
+| **`200`** | dockerレジストリがデフォルトとして設定されました。 |
 
 
 ## GET /object-storage/push-access
@@ -1845,7 +1845,7 @@ Completionリクエストは、指定されたカーソル位置での補完項�
 ### パラメータ
 | 名前 | 場所 | 必須 | 型 | 説明 |
 | :--- | :------- | :------- | :--- | :---------- |
-| **`X-Daytona-Organization-ID`** | header | false | undefined | JWTと組み合わせて組織IDを指定する際に使用 |
+| **`X-Daytona-Organization-ID`** | header | false | undefined | 組織IDを指定するためにJWTと併用 |
 
 ### レスポンス
 | ステータスコード | 説明 |

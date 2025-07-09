@@ -1,57 +1,57 @@
 ---
-title: 宣言的ビルダー
+title: Declarative Builder
 ---
 
 import { TabItem, Tabs } from '@astrojs/starlight/components'
 
-Daytonaの宣言的ビルダーは、Sandboxの依存関係を定義するための強力なコードファーストアプローチを提供します。コンテナレジストリからイメージをインポートする代わりに、SDKを使用してプログラム的に定義することができます。
+DaytonaのDeclarative Builderは、Sandboxの依存関係を定義するための強力なコードファーストアプローチを提供します。コンテナレジストリからイメージをインポートする代わりに、SDKを使用してプログラム的に定義することができます。
 
 ## 概要
 
 宣言的ビルダーシステムは、2つの主要なワークフローをサポートしています：
 
-1. **動的イメージ**: Sandboxを作成する際に、異なる依存関係を持つイメージを*オンデマンド*でビルド
-2. **事前ビルドスナップショット**: 複数のSandbox間で共有できる*すぐに使用可能な*スナップショットを作成・登録
+1. **動的イメージ**: Sandboxを作成する際に、異なる依存関係を持つイメージを_オンデマンド_でビルド
+2. **事前構築済みSnapshot**: 複数のSandbox間で共有できる_すぐに使用可能な_Snapshotを作成・登録
 
 以下の機能を提供します。完全なAPIリファレンスとメソッドシグネチャについては、[Python](/docs/ja/python-sdk/common/image)および[TypeScript](/docs/ja/typescript-sdk/image) SDKリファレンスをご確認ください。
 
 ### ベースイメージの選択
 
-- **Debian ベースの環境**（Pythonと必須のビルドツールがプリインストール済み）
-- **カスタムベースイメージ**（任意のDockerレジストリまたは既存のコンテナイメージから）
-- **Dockerfile統合**（既存のDockerfileをインポートして拡張）
+- Pythonと必須のプリインストールされたビルドツールを含む**Debianベースの環境**
+- 任意のDockerレジストリまたは既存のコンテナイメージからの**カスタムベースイメージ**
+- 既存のDockerfileをインポートして拡張する**Dockerfile統合**
 
 ### パッケージ管理
 
-- **Pythonパッケージインストール**（`pip`、`requirements.txt`、`pyproject.toml`をサポート）
-- **高度なpipオプション**（カスタムインデックス、find-links、オプション依存関係を含む）
+- `pip`、`requirements.txt`、`pyproject.toml`をサポートした**Pythonパッケージインストール**
+- カスタムインデックス、find-links、オプション依存関係を含む**高度なpipオプション**
 
 ### ファイルシステム操作
 
-- **ファイルコピー**（ローカル開発環境からイメージへ）
-- **ディレクトリコピー**（一括ファイル転送とプロジェクトセットアップ用）
-- **作業ディレクトリ設定**（デフォルトの実行コンテキストを設定）
+- ローカル開発環境からイメージへの**ファイルコピー**
+- 一括ファイル転送とプロジェクトセットアップのための**ディレクトリコピー**
+- デフォルトの実行コンテキストを設定する**作業ディレクトリ設定**
 
 ### 環境設定
 
-- **環境変数**（アプリケーション設定とシークレット用）
-- **シェルコマンド実行**（イメージビルドプロセス中）
-- **コンテナランタイム設定**（エントリーポイントとデフォルトコマンドを含む）
+- アプリケーション設定とシークレット用の**環境変数**
+- イメージビルドプロセス中の**シェルコマンド実行**
+- エントリーポイントとデフォルトコマンドを含む**コンテナランタイム設定**
 
 詳細なメソッドシグネチャと使用例については、[Python](/docs/ja/python-sdk/common/image)および[TypeScript](/docs/ja/typescript-sdk/image) SDKリファレンスを参照してください。
 
 ## 動的イメージビルド
 
-Sandboxを作成する際に、その場でイメージを作成します。これは、既存のイメージに含まれていない特定の依存関係を持つ新しいSandboxを作成したい場合に便利です。
+Sandboxを作成する際に、オンザフライでイメージを作成します。これは、既存のイメージに含まれていない特定の依存関係を持つ新しいSandboxを作成したい場合に便利です。
 
-全く新しいイメージを定義するか、既存のイメージに特定の依存関係を追加することができます - 例えば、`pip`パッケージや`apt-get install`コマンドなどです。
+完全に新しいイメージを定義するか、既存のイメージに特定の依存関係を追加することができます - 例えば、`pip`パッケージや`apt-get install`コマンドなど。
 これにより、ビルドプロセスに独自のコンピュートを使用する必要がなくなり、代わりにDaytonaのインフラストラクチャにオフロードできます。
-各バージョンに対して個別のSnapshotを登録・検証する必要がなく、代わりに依存関係リストを素早く反復したり、数十から数百の類似したユースケース/セットアップに対してわずかに異なるバージョンを持つことができます。
+各バージョンに対して個別のSnapshotを登録・検証する必要がありません。代わりに、依存関係リストを素早く反復したり、数十または数百の類似したユースケース/セットアップに対してわずかに異なるバージョンを持つことができます。
 
 <Tabs>
 <TabItem label="Python" icon="seti:python">
 ```python
-# 動的イメージを定義する
+# Define the dynamic image
 dynamic_image = (
     Image.debian_slim("3.12")
     .pip_install(["pytest", "pytest-cov", "mypy", "ruff", "black", "gunicorn"])
@@ -61,7 +61,7 @@ dynamic_image = (
     .add_local_file("file_example.txt", "/home/daytona/project/file_example.txt")
 )
 
-# 動的イメージで新しいSandboxを作成し、ビルドログをストリーミングする
+# Create a new Sandbox with the dynamic image and stream the build logs
 
 sandbox = daytona.create(
 CreateSandboxFromImageParams(
@@ -101,29 +101,29 @@ const sandbox = await daytona.create(
 </Tabs>
 
 :::tip
-動的イメージからSandboxの作成を一度実行すると、イメージは次の24時間キャッシュされ、同じRunner上で実行される後続のSandbox作成はほぼ瞬時に完了します。
+動的イメージからSandbox作成を一度実行すると、イメージは次の24時間キャッシュされ、同じRunnerに到達する後続のSandbox作成はほぼ瞬時に行われます。
 
 これは、毎回同じスクリプトを使用でき、Daytonaがイメージを適切にキャッシュしてくれることを意味します。
 :::
 
-## 事前構築済みスナップショットの作成
+## 事前構築済みSnapshotの作成
 
-特定の依存関係を含む新しいDaytonaスナップショットを準備し、必要に応じて複数のSandbox間で即座に使用したい場合は、事前構築済みスナップショットを作成できます。
+特定の依存関係を含む新しいDaytona Snapshotを準備し、必要に応じて複数のSandbox間で即座に使用したい場合は、事前構築済みSnapshotを作成できます。
 
-このスナップショットはDaytonaダッシュボードに表示され続け、永続的にキャッシュされるため、再構築の必要がありません。
+このSnapshotはDaytonaダッシュボードに表示され続け、永続的にキャッシュされるため、再構築の必要がありません。
 
 <Tabs>
 <TabItem label="Python" icon="seti:python">
 ```python
-# スナップショットの一意な名前を生成
+# Generate a unique name for the Snapshot
 snapshot_name = f"python-example:{int(time.time())}"
 
-# イメージに追加するデータを含むローカルファイルを作成する
+# Create a local file with some data to add to the image
 
 with open("file_example.txt", "w") as f:
 f.write("Hello, World!")
 
-# 一般的なデータサイエンスパッケージを含むPythonイメージを作成する
+# Create a Python image with common data science packages
 
 image = (
 Image.debian_slim("3.12")
@@ -139,7 +139,7 @@ Image.debian_slim("3.12")
 .add_local_file("file_example.txt", "/home/daytona/workspace/file_example.txt")
 )
 
-# スナップショットを作成してビルドログをストリーミングする
+# Create the Snapshot and stream the build logs
 
 print(f"=== Creating Snapshot: {snapshot_name} ===")
 daytona.snapshot.create(
@@ -155,7 +155,7 @@ disk=3,
 on_logs=print,
 )
 
-# 事前に構築されたSnapshotを使用して新しいSandboxを作成する
+# Create a new Sandbox using the pre-built Snapshot
 
 sandbox = daytona.create(
 CreateSandboxFromSnapshotParams(
@@ -215,19 +215,19 @@ const sandbox = await daytona.create({
 
 ## 既存のDockerfileを使用する
 
-イメージのベースとして使用したい既存のDockerfileがある場合は、以下の方法でインポートできます：
+イメージのベースとして使用したい既存のDockerfileがある場合、以下の方法でインポートできます：
 
 <Tabs>
-  <TabItem label="Python" icon="seti:python">
-    ```python
-    image = Image.from_dockerfile("app/Dockerfile").pip_install(["numpy"])
-    ```
-  </TabItem>
-  <TabItem label="TypeScript" icon="seti:typescript">
-    ```typescript
-    const image = Image.fromDockerfile("app/Dockerfile").pipInstall(['numpy'])
-    ```
-  </TabItem>
+<TabItem label="Python" icon="seti:python">
+```python
+image = Image.from_dockerfile("app/Dockerfile").pip_install(["numpy"])
+```
+</TabItem>
+<TabItem label="TypeScript" icon="seti:typescript">
+```typescript
+const image = Image.fromDockerfile("app/Dockerfile").pipInstall(['numpy'])
+```
+</TabItem>
 </Tabs>
 
 ## ベストプラクティス

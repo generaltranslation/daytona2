@@ -8,7 +8,7 @@ export const partial = true;
 
 :::caution
 この手順は破壊的で元に戻すことができません。
-続行する前に、ワークスペースデータと関連する設定のバックアップを取得していることを確認してください。
+続行する前に、Workspaceデータと関連する設定のバックアップを取っていることを確認してください。
 :::
 
 <br />
@@ -38,7 +38,7 @@ rm -f ~/.ssh/daytona_config
 nano ~/.ssh/config
 ```
 
-以下のコマンドを実行して、ローカルのDaytonaレジストリコンテナを削除してください：
+以下のコマンドを実行してローカルのDaytonaレジストリコンテナを削除してください：
 
 ```shell
 docker rm /daytona-registry

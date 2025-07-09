@@ -9,7 +9,7 @@ hideTitleOnPage: true
 class Volume(VolumeDto)
 ```
 
-SandboxのためのShared Storageボリュームである、Daytona Volumeを表します。
+SandboxのためのSharedストレージボリュームであるDaytona Volumeを表します。
 
 **属性**:
 
@@ -63,7 +63,7 @@ async def get(name: str, create: bool = False) -> Volume
 **引数**:
 
 - `name` _str_ - 取得するVolumeの名前。
-- `create` _bool_ - Trueの場合、Volumeが存在しない場合は新しいVolumeを作成します。
+- `create` _bool_ - Trueの場合、存在しない場合は新しいVolumeを作成します。
   
 
 **戻り値**:

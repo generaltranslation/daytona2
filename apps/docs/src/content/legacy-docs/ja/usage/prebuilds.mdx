@@ -1,6 +1,6 @@
 ---
 title: Prebuilds
-description: ワークスペース間でPrebuildsを管理・再利用する方法を学びます。
+description: Workspace間でPrebuildsを管理・再利用する方法を学びます。
 sidebar:
   label: Prebuilds
 ---
@@ -11,14 +11,14 @@ import Label from '@components/Label.astro'
   Distribution: **Open Source**
 </Label>
 
-Prebuildsは、ワークスペースを事前にビルドすることで開発を加速するように設計されています。ワークスペースを開始すると、事前にビルドされた環境が使用され、ワークスペースがほぼ瞬時に開始されることが保証されます。
+Prebuildsは、Workspaceを事前にビルドすることで開発を加速するように設計されています。Workspaceを開始すると、事前にビルドされた環境が使用され、Workspaceがほぼ瞬時に開始されることが保証されます。
 
 Prebuildsは、接続されたGit Providerのリポジトリの変更を監視する[プロジェクト設定](/docs/ja/usage/projects#project-configuration)を設定することでこれを実現します。
 
 PrebuildsはGit ProviderからのWebhookイベントのリスナーを登録することで動作します。パブリックAPIエンドポイントが提供され、Git Providerはこれらのリクエストを送信するためにこれを使用します。
 
 :::note
-DaytonaはPrebuildsのGit ProviderとしてGitHub、GitLab、GitLab Self-Managedを現在サポートしています。
+DaytonaはPrebuilds用のGit ProviderとしてGitHub、GitLab、およびGitLab Self-Managedを現在サポートしています。
 :::
 
 ## Prebuildを追加する
@@ -29,7 +29,7 @@ DaytonaはPrebuildsのGit ProviderとしてGitHub、GitLab、GitLab Self-Managed
 daytona prebuilds add
 ```
 
-コマンドを実行すると、Daytonaは作業予定のプロジェクト設定を選択するよう促します。その後、ビルドをトリガーするコミット間隔（例：`5`、_5コミットごと_）、変更があった際に即座にビルドプロセスを開始する特定のトリガーファイル、およびビルド保持期間（一度に保存するビルドの最大数）を決定できます。
+コマンドを実行すると、Daytona は作業予定のプロジェクト設定を選択するよう促します。その後、ビルドをトリガーするコミット間隔（例：`5`、_5コミットごと_）、変更があった際に即座にビルドプロセスを開始する特定のトリガーファイル、およびビルド保持期間（一度に保存するビルドの最大数）を決定できます。
 
 ```text
 Select a Project Config To Prebuild
@@ -55,7 +55,7 @@ Maximum number of resulting builds stored at a time
 >
 ```
 
-その後の`daytona create`呼び出しでは、最新の既存ビルドが自動的に検出され、それを使用してプロジェクトが作成されます。
+その後の `daytona create` 呼び出しでは、最新の既存ビルドが自動的に検出され、それを使用してプロジェクトが作成されます。
 
 ## Prebuildを使用する
 
@@ -75,17 +75,17 @@ daytona create [PROJECT_CONFIG_NAME]
 
 Workspace作成プロセス中に、初回のPrebuildが完了している場合、セットアップはほぼ瞬時に行われます。そうでない場合は、新しいビルドがトリガーされ、Workspace作成が遅くなる可能性があります。
 
-## Prebuildsの一覧表示
+## Prebuildの一覧表示
 
-Daytonaは、すべてのPrebuildsを一覧表示するオプションを提供し、各Prebuild設定内に保存されているプロパティの概要を確認できます。
+Daytonaは、すべてのPrebuildを一覧表示するオプションを提供し、各Prebuild設定内に保存されているプロパティの概要を確認できます。
 
-1. すべてのPrebuildsを一覧表示するには、以下のコマンドを実行します：
+1. すべてのPrebuildを一覧表示するには、以下のコマンドを実行します：
 
 ```shell
 daytona prebuilds list
 ```
 
-このコマンドを実行すると、DaytonaはPrebuildsの一覧を表示します。プロジェクト設定、リンクされているブランチ、コミット間隔、トリガーファイル、およびビルド保持期間を確認できます。
+このコマンドを実行すると、DaytonaはPrebuildの一覧を表示します。プロジェクト設定、リンクされているブランチ、コミット間隔、トリガーファイル、およびビルド保持期間を確認できます。
 
 ```text
 Project Config   Branch  Commit Interval  Trigger files  Build Retention
@@ -124,11 +124,11 @@ Commit interval      5
 Build retention      3
 ```
 
-## Prebuildの更新
+## Prebuildsの更新
 
-Daytonaは、Prebuildの設定を管理および変更するのに役立つPrebuildを更新するオプションを提供します。
+Daytonaは、Prebuildを更新するオプションを提供し、Prebuild設定の管理と変更を支援します。
 
-1. 次のコマンドを実行してPrebuildを更新します：
+1. 以下のコマンドを実行してPrebuildを更新します：
 
 ```shell
 daytona prebuilds update
@@ -143,7 +143,7 @@ MyConfig (main)
 abcd1234efg (every 5 commits)
 ```
 
-Prebuildを選択すると、DaytonaはPrebuildのコミット間隔、トリガーファイル、およびビルド保持期間の更新を求めます。
+Prebuildを選択すると、Daytonaはコミット間隔、トリガーファイル、およびビルド保持期間の更新を求めるプロンプトを表示します。
 
 ```text
 Commit interval
@@ -169,9 +169,9 @@ Prebuild updated successfully
 
 ## Prebuildsの削除
 
-Daytonaは、Prebuildsを削除するオプションを提供し、不要になったものを管理および削除するのに役立ちます。
+Daytonaは、Prebuildsを削除するオプションを提供しており、不要になったものを管理および削除するのに役立ちます。
 
-1. 次のコマンドを実行してPrebuildを削除します：
+1. 以下のコマンドを実行してPrebuildを削除します：
 
 ```shell
 daytona prebuilds delete
