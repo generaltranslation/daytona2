@@ -21,3 +21,5 @@ jobs:
           inline: true
           pr_branch: 'gt-translate/${{ github.ref_name }}'
           pr_title: 'GT Translate: Translation updates for ${{ github.ref_name }} (${{ github.event.head_commit.message }})'
+          experimental_localize_static_urls: true
+          experimental_flatten_json_files: true
